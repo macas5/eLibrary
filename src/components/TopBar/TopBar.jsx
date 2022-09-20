@@ -18,15 +18,12 @@ import './TopBar.css';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-// const settings = ['Account', 'Logout'];
-
 const TopBar = ({ navbarLinks, accountLinks }) => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [isAuthed, setIsAuthed] = useState(false);
   const [pages, setPages] = useState([...navbarLinks]);
   const settings = [...accountLinks];
-  // console.log(settings);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -139,7 +136,6 @@ const TopBar = ({ navbarLinks, accountLinks }) => {
           <Typography
             variant="h5"
             noWrap
-            // className="logo"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
