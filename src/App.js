@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import MainPage from './pages/MainPage/MainPage';
 import './App.css';
 
@@ -11,7 +13,14 @@ const navbarLinks = [
 function App() {
   return (
     <div className="App">
-      <MainPage navbarLinks={navbarLinks} />
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={<MainPage navbarLinks={navbarLinks} />}
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

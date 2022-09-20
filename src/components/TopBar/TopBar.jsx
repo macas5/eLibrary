@@ -15,16 +15,16 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuBook from '@mui/icons-material/MenuBook';
 
 import './TopBar.css';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const settings = ['Account', 'Logout'];
 
 const TopBar = ({ navbarLinks }) => {
-  const originalPages = [...navbarLinks];
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [isAuthed, setIsAuthed] = useState(false);
-  const [pages, setPages] = useState([...originalPages]);
+  const [pages, setPages] = useState([...navbarLinks]);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -49,8 +49,9 @@ const TopBar = ({ navbarLinks }) => {
       });
       setPages(filteredList);
     } else {
-      setPages(originalPages);
+      setPages(navbarLinks);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthed]);
 
   return (
@@ -66,7 +67,6 @@ const TopBar = ({ navbarLinks }) => {
             variant="h6"
             noWrap
             component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -77,7 +77,12 @@ const TopBar = ({ navbarLinks }) => {
               textDecoration: 'none',
             }}
           >
-            eLibrary
+            <Link
+              className="link"
+              to="/"
+            >
+              eLibrary
+            </Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -118,7 +123,12 @@ const TopBar = ({ navbarLinks }) => {
                     color="inherit"
                     textAlign="center"
                   >
-                    {page.name}
+                    <Link
+                      className="link"
+                      to={page.path}
+                    >
+                      {page.name}
+                    </Link>
                   </Typography>
                 </MenuItem>
               ))}
@@ -129,7 +139,6 @@ const TopBar = ({ navbarLinks }) => {
             variant="h5"
             noWrap
             component="a"
-            href=""
             // className="logo"
             sx={{
               mr: 2,
@@ -142,7 +151,12 @@ const TopBar = ({ navbarLinks }) => {
               textDecoration: 'none',
             }}
           >
-            eLibrary
+            <Link
+              className="link"
+              to="/"
+            >
+              eLibrary
+            </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -151,7 +165,12 @@ const TopBar = ({ navbarLinks }) => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'inherit', display: 'block' }}
               >
-                {page.name}
+                <Link
+                  className="link"
+                  to={page.path}
+                >
+                  {page.name}
+                </Link>
               </Button>
             ))}
           </Box>
