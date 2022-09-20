@@ -11,10 +11,12 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import MenuBook from '@mui/icons-material/MenuBook';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+import './TopBar.css';
+
+const pages = ['eBooks', 'Most popular', 'Login', 'Register', 'My Account'];
+const settings = ['Account', 'Logout'];
 
 const TopBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -36,10 +38,14 @@ const TopBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar
+      color="inherit"
+      position="static"
+      elevation={1}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <MenuBook sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -92,17 +98,23 @@ const TopBar = () => {
                   key={page}
                   onClick={handleCloseNavMenu}
                 >
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography
+                    color="inherit"
+                    textAlign="center"
+                  >
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <MenuBook sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
             component="a"
             href=""
+            // className="logo"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -121,7 +133,7 @@ const TopBar = () => {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'inherit', display: 'block' }}
               >
                 {page}
               </Button>
