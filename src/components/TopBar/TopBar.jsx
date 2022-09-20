@@ -1,5 +1,3 @@
-// import React, { useEffect } from 'react';
-
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,10 +11,10 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import MenuBook from '@mui/icons-material/MenuBook';
-
-import './TopBar.css';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+import './TopBar.css';
 
 const TopBar = ({ navbarLinks, accountLinks }) => {
   const [anchorElNav, setAnchorElNav] = useState(null);
