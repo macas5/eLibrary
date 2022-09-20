@@ -15,12 +15,12 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuBook from '@mui/icons-material/MenuBook';
 
 import './TopBar.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
-const originalPages = ['eBooks', 'Most popular', 'Login', 'Register'];
 const settings = ['Account', 'Logout'];
 
-const TopBar = () => {
+const TopBar = ({ navbarLinks }) => {
+  const originalPages = [...navbarLinks];
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [isAuthed, setIsAuthed] = useState(false);
@@ -44,12 +44,9 @@ const TopBar = () => {
   useEffect(() => {
     setIsAuthed(true);
     if (isAuthed) {
-      const filteredList = [...pages];
-      const loginIndex = filteredList.indexOf('Login');
-      loginIndex && filteredList.splice(loginIndex, 1);
-      const registerIndex = filteredList.indexOf('Register');
-      registerIndex && filteredList.splice(registerIndex, 1);
-      console.log(filteredList);
+      const filteredList = pages.filter((page) => {
+        return page.name !== 'Login' && page.name !== 'Register';
+      });
       setPages(filteredList);
     } else {
       setPages(originalPages);
@@ -114,14 +111,14 @@ const TopBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem
-                  key={page}
+                  key={page.name}
                   onClick={handleCloseNavMenu}
                 >
                   <Typography
                     color="inherit"
                     textAlign="center"
                   >
-                    {page}
+                    {page.name}
                   </Typography>
                 </MenuItem>
               ))}
@@ -150,11 +147,11 @@ const TopBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.name}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'inherit', display: 'block' }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>

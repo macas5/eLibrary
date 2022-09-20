@@ -2,10 +2,10 @@ import Footer from '../../components/Footer/Footer';
 import MainBody from '../../components/MainBody/MainBody';
 import TopBar from '../../components/TopBar/TopBar';
 
-const MainPage = () => {
+const MainPage = ({ navbarLinks }) => {
   return (
     <>
-      <TopBar />
+      <TopBar navbarLinks={navbarLinks} />
       <MainBody />
       <Footer />
     </>
