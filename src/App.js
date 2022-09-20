@@ -10,6 +10,11 @@ const navbarLinks = [
   { name: 'Register', path: '/' },
 ];
 
+const accountLinks = [
+  { name: 'Account', path: '/' },
+  { name: 'Logout', path: '/' },
+];
+
 function App() {
   return (
     <div className="App">
@@ -17,7 +22,12 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<MainPage navbarLinks={navbarLinks} />}
+            element={
+              <MainPage
+                navbarLinks={navbarLinks}
+                accountLinks={accountLinks}
+              />
+            }
           />
         </Routes>
       </BrowserRouter>

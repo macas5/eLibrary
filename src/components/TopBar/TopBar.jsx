@@ -18,13 +18,15 @@ import './TopBar.css';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const settings = ['Account', 'Logout'];
+// const settings = ['Account', 'Logout'];
 
-const TopBar = ({ navbarLinks }) => {
+const TopBar = ({ navbarLinks, accountLinks }) => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [isAuthed, setIsAuthed] = useState(false);
   const [pages, setPages] = useState([...navbarLinks]);
+  const settings = [...accountLinks];
+  // console.log(settings);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -66,7 +68,6 @@ const TopBar = ({ navbarLinks }) => {
           <Typography
             variant="h6"
             noWrap
-            component="a"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -138,7 +139,6 @@ const TopBar = ({ navbarLinks }) => {
           <Typography
             variant="h5"
             noWrap
-            component="a"
             // className="logo"
             sx={{
               mr: 2,
@@ -206,10 +206,17 @@ const TopBar = ({ navbarLinks }) => {
               >
                 {settings.map((setting) => (
                   <MenuItem
-                    key={setting}
+                    key={setting.name}
                     onClick={handleCloseUserMenu}
                   >
-                    <Typography textAlign="center">{setting}</Typography>
+                    <Typography textAlign="center">
+                      <Link
+                        className="link"
+                        to={setting.path}
+                      >
+                        {setting.name}
+                      </Link>
+                    </Typography>
                   </MenuItem>
                 ))}
               </Menu>
