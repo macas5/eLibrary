@@ -17,13 +17,14 @@ import MenuBook from '@mui/icons-material/MenuBook';
 import './TopBar.css';
 import { useState, useEffect } from 'react';
 
-const pages = ['eBooks', 'Most popular', 'Login', 'Register'];
+const originalPages = ['eBooks', 'Most popular', 'Login', 'Register'];
 const settings = ['Account', 'Logout'];
 
 const TopBar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [isAuthed, setIsAuthed] = useState(false);
+  const [pages, setPages] = useState([...originalPages]);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -41,10 +42,18 @@ const TopBar = () => {
   };
 
   useEffect(() => {
-    setIsAuthed(false);
-    isAuthed &&
-      pages.splice(pages.indexOf('Login'), 1) &&
-      pages.splice(pages.indexOf('Register'), 1);
+    setIsAuthed(true);
+    if (isAuthed) {
+      const filteredList = [...pages];
+      const loginIndex = filteredList.indexOf('Login');
+      loginIndex && filteredList.splice(loginIndex, 1);
+      const registerIndex = filteredList.indexOf('Register');
+      registerIndex && filteredList.splice(registerIndex, 1);
+      console.log(filteredList);
+      setPages(filteredList);
+    } else {
+      setPages(originalPages);
+    }
   }, [isAuthed]);
 
   return (
