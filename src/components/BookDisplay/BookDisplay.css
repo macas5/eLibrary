@@ -15,6 +15,11 @@
   padding-bottom: 30px;
 }
 
+.bookDisplayWrapper button {
+  color: white;
+  border: 1px solid white;
+}
+
 .bookDisplayShowcase {
   margin-bottom: 20px;
   display: flex;

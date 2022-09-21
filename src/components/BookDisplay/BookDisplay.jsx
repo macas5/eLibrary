@@ -1,4 +1,5 @@
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 import './BookDisplay.css';
 
@@ -37,14 +38,21 @@ const BookDisplay = () => {
         <h1>eBooks</h1>
         <div className="bookDisplayShowcase">
           {books.map((book, index) => (
-            <img
-              key={book.image}
-              src={book.image}
-              alt={`book${index}`}
-            />
+            <Link to={book.link}>
+              <img
+                key={book.image}
+                src={book.image}
+                alt={`book${index}`}
+              />
+            </Link>
           ))}
         </div>
-        <Button variant="outlined">All eBooks</Button>
+        <Link
+          className="link"
+          to="/"
+        >
+          <Button variant="outlined">All eBooks</Button>
+        </Link>
       </div>
     </div>
   );
