@@ -1,0 +1,50 @@
+.searchBar {
+  width: 100vw;
+  min-height: 350px;
+}
+
+.searchBarBackground {
+  background: url(https://ibiblioteka.lt/metis/intro-bg2.f35c4d1dad0583878c37.png);
+  width: 100vw;
+  height: 350px;
+  position: absolute;
+  top: 100;
+  left: 0;
+  z-index: -99;
+}
+
+.searchBarWrapper {
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+}
+
+.searchBarWrapper h1 {
+  margin-bottom: 1rem;
+}
+
+.searchForm {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#searchField {
+  width: 300px;
+  background-color: white;
+  padding-top: 20px;
+}
+
+#searchButton {
+  margin-left: 20px;
+  height: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+#searchButton svg {
+  font-size: 20px;
+  margin-right: 5px;
+}

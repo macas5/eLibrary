@@ -1,5 +1,5 @@
 import Footer from '../../components/Footer/Footer';
-import MainBody from '../../components/MainBody/MainBody';
+import SearchBar from '../../components/SearchBar/SearchBar';
 import TopBar from '../../components/TopBar/TopBar';
 
 const MainPage = ({ navbarLinks, accountLinks }) => {
@@ -9,7 +9,7 @@ const MainPage = ({ navbarLinks, accountLinks }) => {
         navbarLinks={navbarLinks}
         accountLinks={accountLinks}
       />
-      <MainBody />
+      <SearchBar />
       <Footer />
     </>
   );
