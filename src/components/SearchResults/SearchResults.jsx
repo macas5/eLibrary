@@ -97,29 +97,17 @@ const SearchResults = () => {
     isReleased: [],
   });
 
-  // useEffect(() => {
-  //   setSearchFilters((prev) => ({
-  //     ...prev,
-  //     language: ['Lithuanian', 'English'],
-  //     form: ['Electronic'],
-  //     isReadableOnline: [true],
-  //     isReleased: [true],
-  //   }));
-  // }, []);
-
   const handleFilterChange = (e) => {
-    // console.log(e.target.id);
-
-    if (e.target.checked) {
-      if (searchFilters[e.target.id].indexOf(e.target.name) === -1) {
-        setSearchFilters((prev) => ({
-          ...prev,
-          [e.target.id]: [...prev[e.target.id], e.target.name],
-        }));
-      }
+    if (
+      e.target.checked &&
+      searchFilters[e.target.id].indexOf(e.target.name) === -1
+    ) {
+      setSearchFilters((prev) => ({
+        ...prev,
+        [e.target.id]: [...prev[e.target.id], e.target.name],
+      }));
     } else {
       if (searchFilters[e.target.id].indexOf(e.target.name) !== -1) {
-        // console.log(searchFilters[e.target.id]);
         const newFilter = searchFilters[e.target.id].filter(
           (filter) => filter !== e.target.name
         );
