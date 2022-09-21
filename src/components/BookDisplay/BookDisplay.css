@@ -1,0 +1,25 @@
+.bookDisplay {
+  margin-top: 50px;
+  background: #1a1349;
+  color: white;
+}
+
+.bookDisplayWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.bookDisplayWrapper h1 {
+  padding-bottom: 30px;
+}
+
+.bookDisplayShowcase {
+  margin-bottom: 20px;
+}
+
+.bookDisplayShowcase img {
+  height: 15rem;
+  padding: 10px;
+}

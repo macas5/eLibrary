@@ -1,3 +1,4 @@
+import BookDisplay from '../../components/BookDisplay/BookDisplay';
 import Footer from '../../components/Footer/Footer';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import TopBar from '../../components/TopBar/TopBar';
@@ -9,7 +10,8 @@ const MainPage = ({ navbarLinks, accountLinks }) => {
         navbarLinks={navbarLinks}
         accountLinks={accountLinks}
       />
-      <SearchBar isMini={true} />
+      <SearchBar isMini={false} />
+      <BookDisplay />
       <Footer />
     </>
   );
