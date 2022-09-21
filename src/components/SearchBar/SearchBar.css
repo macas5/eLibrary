@@ -1,6 +1,6 @@
 .searchBar {
   width: 100vw;
-  min-height: 350px;
+  height: 350px;
 }
 
 .searchBarBackground {
@@ -31,6 +31,10 @@
   flex-wrap: wrap;
 }
 
+.searchForm div {
+  margin-bottom: 5px;
+}
+
 #searchField {
   width: 300px;
   background-color: white;
@@ -49,11 +53,15 @@
   margin-right: 5px;
 }
 
+.mini {
+  height: 150px;
+}
+
 .mini h1 {
   display: none;
 }
 
 .mini .searchBarBackground {
   background: #1a1349;
-  height: 130px;
+  height: 150px;
 }
