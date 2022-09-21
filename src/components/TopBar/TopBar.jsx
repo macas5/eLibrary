@@ -111,22 +111,22 @@ const TopBar = ({ navbarLinks, accountLinks }) => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem
-                  key={page.name}
-                  onClick={handleCloseNavMenu}
+                <Link
+                  className="link"
+                  to={page.path}
                 >
-                  <Typography
-                    color="inherit"
-                    textAlign="center"
+                  <MenuItem
+                    key={page.name}
+                    onClick={handleCloseNavMenu}
                   >
-                    <Link
-                      className="link"
-                      to={page.path}
+                    <Typography
+                      color="inherit"
+                      textAlign="center"
                     >
                       {page.name}
-                    </Link>
-                  </Typography>
-                </MenuItem>
+                    </Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
@@ -154,18 +154,18 @@ const TopBar = ({ navbarLinks, accountLinks }) => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
+              <Link
                 key={page.name}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'inherit', display: 'block' }}
+                className="link"
+                to={page.path}
               >
-                <Link
-                  className="link"
-                  to={page.path}
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'inherit', display: 'block' }}
                 >
                   {page.name}
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             ))}
           </Box>
           {/* IsAuthed? */}

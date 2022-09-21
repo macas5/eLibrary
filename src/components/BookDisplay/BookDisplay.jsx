@@ -51,7 +51,7 @@ const BookDisplay = () => {
         </div>
         <Link
           className="link"
-          to="/"
+          to="/search/?readonline=true"
         >
           <Button variant="outlined">All eBooks</Button>
         </Link>
