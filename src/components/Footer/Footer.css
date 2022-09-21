@@ -1,0 +1,34 @@
+.footerWrapper {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    background: #fff;
+    padding: 35px 60px;
+    border-top: 1px solid #e6e6e6;
+    font-family: Roboto;
+}
+
+.footerSection {
+    width: 33.33%;
+    padding: 0px 20px;
+}
+
+.footerSectionTitle {
+    margin-bottom: 15px;
+}
+
+.footerLinksWrapper, .footerContactsWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footerLink {
+    padding-bottom: 19px;
+    margin-bottom: 19px;
+    border-bottom: .0625rem solid #e3e3e3;
+}
+
+.footerContact {
+    margin: 19px 0px;
+}
