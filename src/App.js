@@ -40,6 +40,15 @@ function App() {
               />
             }
           />
+          <Route
+            path="/search/:searchValue"
+            element={
+              <Search
+                navbarLinks={navbarLinks}
+                accountLinks={accountLinks}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>

@@ -86,16 +86,17 @@ const books = [
   ),
 ];
 
-const SearchResults = () => {
+const SearchResults = ({ searchValue }) => {
   const [bookList, setbookList] = useState([...books]);
   const [searchFilters, setSearchFilters] = useState({
-    title: '',
-    author: '',
+    addressValue: '',
     form: [],
     language: [],
     isReadableOnline: [],
     isReleased: [],
   });
+
+  console.log(searchFilters.addressValue);
 
   const handleFilterChange = (e) => {
     if (
@@ -120,9 +121,23 @@ const SearchResults = () => {
   };
 
   useEffect(() => {
+    setSearchFilters((prev) => ({
+      ...prev,
+      addressValue: searchValue ? searchValue : '',
+    }));
+  }, [searchValue]);
+
+  useEffect(() => {
     setbookList(
       books.filter((book) => {
         return (
+          (book.title
+            .toLowerCase()
+            .includes(searchFilters.addressValue.toLowerCase()) ||
+            book.author
+              .toLowerCase()
+              .includes(searchFilters.addressValue.toLowerCase()) ||
+            !searchFilters.addressValue.length) &&
           (searchFilters.language.indexOf(book.language) !== -1 ||
             !searchFilters.language.length) &&
           (searchFilters.form.indexOf(book.form) !== -1 ||
