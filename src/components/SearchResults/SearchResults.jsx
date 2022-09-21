@@ -86,7 +86,7 @@ const books = [
   ),
 ];
 
-const SearchResults = ({ searchValue }) => {
+const SearchResults = ({ searchValue, isOnlineReadable = 'false' }) => {
   const [bookList, setbookList] = useState([...books]);
   const [searchFilters, setSearchFilters] = useState({
     addressValue: '',
@@ -95,8 +95,6 @@ const SearchResults = ({ searchValue }) => {
     isReadableOnline: [],
     isReleased: [],
   });
-
-  console.log(searchFilters.addressValue);
 
   const handleFilterChange = (e) => {
     if (
@@ -124,8 +122,9 @@ const SearchResults = ({ searchValue }) => {
     setSearchFilters((prev) => ({
       ...prev,
       addressValue: searchValue ? searchValue : '',
+      isReadableOnline: isOnlineReadable === 'true' ? [isOnlineReadable] : [],
     }));
-  }, [searchValue]);
+  }, [isOnlineReadable, searchValue]);
 
   useEffect(() => {
     setbookList(
@@ -156,7 +155,7 @@ const SearchResults = ({ searchValue }) => {
     <Container>
       <div className="searchResults">
         <h1>Search</h1>
-        <p>Number of results found: 420</p>
+        <p>Number of results found: {bookList.length}</p>
         <div className="searchResultsWrapper">
           <div className="filters">
             <List dense>
@@ -166,6 +165,7 @@ const SearchResults = ({ searchValue }) => {
                     name="true"
                     id="isReadableOnline"
                     onClick={handleFilterChange}
+                    defaultChecked={isOnlineReadable === 'true'}
                     edge="start"
                   />
                   <ListItemText primary="Read Online" />

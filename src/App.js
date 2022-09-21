@@ -6,7 +6,7 @@ import Search from './pages/Search/Search';
 import './App.css';
 
 const navbarLinks = [
-  { name: 'eBooks', path: '/' },
+  { name: 'eBooks', path: '/search/?readonline=true' },
   { name: 'Most popular', path: '/' },
   { name: 'Login', path: '/' },
   { name: 'Register', path: '/' },

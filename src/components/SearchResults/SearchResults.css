@@ -57,3 +57,17 @@
 .bookInfo {
   font-size: 12px;
 }
+
+@media screen and (max-width: 550px) {
+  .searchResultsWrapper {
+    flex-direction: column;
+  }
+
+  .filters {
+    width: 100%;
+  }
+
+  .results {
+    width: 100%
+  }
+}

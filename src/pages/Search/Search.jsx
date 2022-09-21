@@ -2,10 +2,12 @@ import Footer from '../../components/Footer/Footer';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import SearchResults from '../../components/SearchResults/SearchResults';
 import TopBar from '../../components/TopBar/TopBar';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 
 const Search = ({ navbarLinks, accountLinks }) => {
   const { searchValue } = useParams();
+  const [searchParams] = useSearchParams();
+  const readOnline = `${searchParams.get('readonline')}`;
   return (
     <>
       <TopBar
@@ -16,7 +18,10 @@ const Search = ({ navbarLinks, accountLinks }) => {
         isMini={true}
         value={searchValue}
       />
-      <SearchResults searchValue={searchValue} />
+      <SearchResults
+        searchValue={searchValue}
+        isOnlineReadable={readOnline}
+      />
       <Footer />
     </>
   );
