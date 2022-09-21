@@ -4,9 +4,9 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import './SearchBar.css';
 
-const SearchBar = () => {
+const SearchBar = ({ isMini = false }) => {
   return (
-    <div className="searchBar">
+    <div className={isMini ? 'searchBar mini' : 'searchBar'}>
       <div className="searchBarBackground" />
       <div className="searchBarWrapper">
         <h1>Search</h1>

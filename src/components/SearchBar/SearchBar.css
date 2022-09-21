@@ -48,3 +48,12 @@
   font-size: 20px;
   margin-right: 5px;
 }
+
+.mini h1 {
+  display: none;
+}
+
+.mini .searchBarBackground {
+  background: #1a1349;
+  height: 130px;
+}

@@ -9,7 +9,7 @@ const MainPage = ({ navbarLinks, accountLinks }) => {
         navbarLinks={navbarLinks}
         accountLinks={accountLinks}
       />
-      <SearchBar />
+      <SearchBar isMini={false} />
       <Footer />
     </>
   );
