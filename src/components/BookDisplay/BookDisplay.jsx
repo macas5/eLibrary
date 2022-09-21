@@ -38,9 +38,11 @@ const BookDisplay = () => {
         <h1>eBooks</h1>
         <div className="bookDisplayShowcase">
           {books.map((book, index) => (
-            <Link to={book.link}>
+            <Link
+              key={book.image}
+              to={book.link}
+            >
               <img
-                key={book.image}
                 src={book.image}
                 alt={`book${index}`}
               />
