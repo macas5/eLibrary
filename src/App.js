@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import MainPage from './pages/MainPage/MainPage';
+import Search from './pages/Search/Search';
+
 import './App.css';
 
 const navbarLinks = [
@@ -24,6 +26,15 @@ function App() {
             path="/"
             element={
               <MainPage
+                navbarLinks={navbarLinks}
+                accountLinks={accountLinks}
+              />
+            }
+          />
+          <Route
+            path="/search"
+            element={
+              <Search
                 navbarLinks={navbarLinks}
                 accountLinks={accountLinks}
               />
