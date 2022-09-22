@@ -1,4 +1,4 @@
-import "./RegisterForm.css";
+import "./AuthForms.css";
 
 const RegisterForm = () => {
   return (
