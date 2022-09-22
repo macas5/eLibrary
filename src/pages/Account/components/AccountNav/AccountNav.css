@@ -1,0 +1,13 @@
+.accountNav {
+  margin-top: 20px;
+}
+
+.accountNav ul {
+  display: flex;
+  list-style: none;
+}
+
+.accountNav li {
+  margin-right: 15px;
+  cursor: pointer;
+}
