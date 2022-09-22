@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const showBookSearchResults = (bookList) => {
   return (
-    <List>
+    <List key="bookList">
       {bookList.map((book, index) => {
         return (
           <>
@@ -12,7 +12,7 @@ const showBookSearchResults = (bookList) => {
               to={`/book/${book.id}`}
               key={index}
             >
-              <ListItem>
+              <ListItem key={index + 'item'}>
                 <div className="book">
                   <div className="bookImage">
                     <img
@@ -44,7 +44,7 @@ const showBookSearchResults = (bookList) => {
                 </div>
               </ListItem>
             </Link>
-            <Divider />
+            <Divider key={index + 'divider'} />
           </>
         );
       })}
