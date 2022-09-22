@@ -114,11 +114,9 @@ const TopBar = ({ navbarLinks, accountLinks }) => {
                 <Link
                   className="link"
                   to={page.path}
+                  key={page.name}
                 >
-                  <MenuItem
-                    key={page.name}
-                    onClick={handleCloseNavMenu}
-                  >
+                  <MenuItem onClick={handleCloseNavMenu}>
                     <Typography
                       color="inherit"
                       textAlign="center"
