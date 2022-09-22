@@ -1,5 +1,12 @@
-const Books = () => {
-  return <div>Books</div>;
+import AccountBooks from '../../components/AccountBooks/AccountBooks';
+
+const Books = ({ user, books }) => {
+  return (
+    <AccountBooks
+      user={user}
+      books={books}
+    />
+  );
 };
 
 export default Books;
