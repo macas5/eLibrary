@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import MainPage from './pages/MainPage/MainPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 import Search from './pages/Search/Search';
 
 import './App.css';
@@ -8,7 +9,7 @@ import './App.css';
 const navbarLinks = [
   { name: 'eBooks', path: '/search/?readonline=true' },
   { name: 'Most popular', path: '/' },
-  { name: 'Login', path: '/' },
+  { name: 'Login', path: '/login' },
   { name: 'Register', path: '/' },
 ];
 
@@ -26,6 +27,15 @@ function App() {
             path="/"
             element={
               <MainPage
+                navbarLinks={navbarLinks}
+                accountLinks={accountLinks}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <LoginPage
                 navbarLinks={navbarLinks}
                 accountLinks={accountLinks}
               />

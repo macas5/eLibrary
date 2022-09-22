@@ -39,7 +39,7 @@ const TopBar = ({ navbarLinks, accountLinks }) => {
   };
 
   useEffect(() => {
-    setIsAuthed(true);
+    setIsAuthed(false);
     if (isAuthed) {
       const filteredList = pages.filter((page) => {
         return page.name !== 'Login' && page.name !== 'Register';
