@@ -8,7 +8,9 @@ const AccountNav = () => {
         <Link to="/account">
           <li>Account</li>
         </Link>
-        <li>My Books</li>
+        <Link to="/account/books">
+          <li>My Books</li>
+        </Link>
         <li>Orders</li>
         <li>Settings</li>
       </ul>

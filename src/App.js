@@ -64,6 +64,18 @@ function App() {
               />
             }
           />
+          <Route
+            path="/account/books"
+            element={
+              <Account
+                navbarLinks={navbarLinks}
+                accountLinks={accountLinks}
+                user={user}
+                books={books}
+                route="books"
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
