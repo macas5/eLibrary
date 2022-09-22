@@ -60,6 +60,7 @@ function App() {
                 navbarLinks={navbarLinks}
                 accountLinks={accountLinks}
                 user={user}
+                books={books}
               />
             }
           />

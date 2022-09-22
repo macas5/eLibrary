@@ -2,7 +2,7 @@ import { Avatar } from '@mui/material';
 import AccountBooks from '../../components/AccountBooks/AccountBooks';
 import './Overview.css';
 
-const Overview = ({ user }) => {
+const Overview = ({ user, books }) => {
   return (
     <div className="overview">
       <div className="accountInfo">
@@ -12,12 +12,15 @@ const Overview = ({ user }) => {
         <div className="userData">
           <p>{`Hi ${user.name}!`}</p>
           <p>Loaned books: 12</p>
-          <p>eBooks owned: 21</p>
+          <p>eBooks owned: {user.booksOwned.length}</p>
           <p>Books overdue: 2</p>
         </div>
       </div>
       <div className="accountBooks">
-        <AccountBooks />
+        <AccountBooks
+          user={user}
+          books={books}
+        />
       </div>
     </div>
   );

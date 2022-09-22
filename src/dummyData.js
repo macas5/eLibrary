@@ -1,6 +1,7 @@
 export const user = {
   username: 'usrnm',
   name: 'User Name',
+  booksOwned: ['2', '3', '5'],
 };
 
 const Book = (

@@ -5,7 +5,7 @@ import TopBar from '../../components/TopBar/TopBar';
 import AccountNav from './components/AccountNav/AccountNav';
 import Overview from './pages/Overview/Overview';
 
-const Account = ({ navbarLinks, accountLinks, user }) => {
+const Account = ({ navbarLinks, accountLinks, user, books }) => {
   return (
     <div className="accountPage">
       <TopBar
@@ -15,7 +15,10 @@ const Account = ({ navbarLinks, accountLinks, user }) => {
       <SearchBar isMini={true} />
       <Container>
         <AccountNav />
-        <Overview user={user} />
+        <Overview
+          user={user}
+          books={books}
+        />
       </Container>
       <Footer />
     </div>
