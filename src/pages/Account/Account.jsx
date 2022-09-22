@@ -5,12 +5,7 @@ import TopBar from '../../components/TopBar/TopBar';
 import AccountNav from './components/AccountNav/AccountNav';
 import Overview from './pages/Overview/Overview';
 
-const user = {
-  username: 'usrnm',
-  name: 'User Name',
-};
-
-const Account = ({ navbarLinks, accountLinks }) => {
+const Account = ({ navbarLinks, accountLinks, user }) => {
   return (
     <div className="accountPage">
       <TopBar

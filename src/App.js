@@ -18,6 +18,11 @@ const accountLinks = [
   { name: 'Logout', path: '/' },
 ];
 
+const user = {
+  username: 'usrnm',
+  name: 'User Name',
+};
+
 function App() {
   return (
     <div className="App">
@@ -56,6 +61,7 @@ function App() {
               <Account
                 navbarLinks={navbarLinks}
                 accountLinks={accountLinks}
+                user={user}
               />
             }
           />
