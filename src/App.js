@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import MainPage from './pages/MainPage/MainPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import RegisterPage from './pages/RegisterPage/RegisterPage';
 import Search from './pages/Search/Search';
 
 import './App.css';
@@ -10,7 +11,7 @@ const navbarLinks = [
   { name: 'eBooks', path: '/search/?readonline=true' },
   { name: 'Most popular', path: '/' },
   { name: 'Login', path: '/login' },
-  { name: 'Register', path: '/' },
+  { name: 'Register', path: '/register' },
 ];
 
 const accountLinks = [
@@ -36,6 +37,15 @@ function App() {
             path="/login"
             element={
               <LoginPage
+                navbarLinks={navbarLinks}
+                accountLinks={accountLinks}
+              />
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <RegisterPage
                 navbarLinks={navbarLinks}
                 accountLinks={accountLinks}
               />
