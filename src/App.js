@@ -5,6 +5,7 @@ import Search from './pages/Search/Search';
 import Account from './pages/Account/Account';
 
 import './App.css';
+import { books, user } from './dummyData';
 
 const navbarLinks = [
   { name: 'eBooks', path: '/search/?readonline=true' },
@@ -17,11 +18,6 @@ const accountLinks = [
   { name: 'Account', path: '/account' },
   { name: 'Logout', path: '/' },
 ];
-
-const user = {
-  username: 'usrnm',
-  name: 'User Name',
-};
 
 function App() {
   return (
@@ -43,6 +39,7 @@ function App() {
               <Search
                 navbarLinks={navbarLinks}
                 accountLinks={accountLinks}
+                books={books}
               />
             }
           />
@@ -52,6 +49,7 @@ function App() {
               <Search
                 navbarLinks={navbarLinks}
                 accountLinks={accountLinks}
+                books={books}
               />
             }
           />

@@ -1,4 +1,5 @@
 import { Avatar } from '@mui/material';
+import AccountBooks from '../../components/AccountBooks/AccountBooks';
 import './Overview.css';
 
 const Overview = ({ user }) => {
@@ -15,7 +16,9 @@ const Overview = ({ user }) => {
           <p>Books overdue: 2</p>
         </div>
       </div>
-      <div className="accountBooks">Your books</div>
+      <div className="accountBooks">
+        <AccountBooks />
+      </div>
     </div>
   );
 };

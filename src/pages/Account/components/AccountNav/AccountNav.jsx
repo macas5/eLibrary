@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom';
 import './AccountNav.css';
 
 const AccountNav = () => {
   return (
     <div className="accountNav">
       <ul>
-        <li>Account</li>
+        <Link to="/account">
+          <li>Account</li>
+        </Link>
         <li>My Books</li>
         <li>Orders</li>
         <li>Settings</li>

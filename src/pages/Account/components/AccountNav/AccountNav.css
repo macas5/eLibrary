@@ -8,6 +8,11 @@
   list-style: none;
 }
 
+.accountNav a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .accountNav li {
   margin-right: 15px;
   cursor: pointer;
