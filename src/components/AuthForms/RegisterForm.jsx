@@ -2,9 +2,34 @@ import "./AuthForms.css";
 
 const RegisterForm = () => {
   return (
-    <div>
-        Register
-    </div>      
+    <div className="authFormWrapper">
+        <div className="authFormTitle">Register</div>
+        <div className="authFormBox">  
+            <div className="authFormFirstSection">
+                <div className="authFormRow">
+                    <div className="authFormLabel">Username</div>
+                    <input type="text" />
+                </div>
+                <div className="authFormRow">
+                    <div className="authFormLabel">Password</div>
+                    <input type="password" />
+                </div>
+                <div className="authFormRow">
+                    <div className="authFormLabel">Repeat password</div>
+                    <input type="password" />
+                </div>
+                <div className="authFormButton">
+                    <button>Register</button>
+                </div>     
+            </div>   
+            <div className="authFormSecondSection">
+                <div className="authFormSectionTitle">Already have an account?</div>
+                <div className="authFormButton">
+                    <button>Login</button>
+                </div>   
+            </div>  
+        </div>
+    </div>          
   );
 };
 
