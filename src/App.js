@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import MainPage from './pages/MainPage/MainPage';
 import Search from './pages/Search/Search';
+import Account from './pages/Account/Account';
 
 import './App.css';
 
@@ -13,7 +14,7 @@ const navbarLinks = [
 ];
 
 const accountLinks = [
-  { name: 'Account', path: '/' },
+  { name: 'Account', path: '/account' },
   { name: 'Logout', path: '/' },
 ];
 
@@ -44,6 +45,15 @@ function App() {
             path="/search/:searchValue"
             element={
               <Search
+                navbarLinks={navbarLinks}
+                accountLinks={accountLinks}
+              />
+            }
+          />
+          <Route
+            path="/account"
+            element={
+              <Account
                 navbarLinks={navbarLinks}
                 accountLinks={accountLinks}
               />
