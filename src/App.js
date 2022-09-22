@@ -65,14 +65,13 @@ function App() {
             }
           />
           <Route
-            path="/account/books"
+            path="/account/:route"
             element={
               <Account
                 navbarLinks={navbarLinks}
                 accountLinks={accountLinks}
                 user={user}
                 books={books}
-                route="books"
               />
             }
           />

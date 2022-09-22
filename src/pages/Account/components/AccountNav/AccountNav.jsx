@@ -12,7 +12,9 @@ const AccountNav = () => {
           <li>My Books</li>
         </Link>
         <li>Orders</li>
-        <li>Settings</li>
+        <Link to="/account/settings">
+          <li>Settings</li>
+        </Link>
       </ul>
     </div>
   );

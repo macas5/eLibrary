@@ -4,9 +4,12 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import TopBar from '../../components/TopBar/TopBar';
 import AccountNav from './components/AccountNav/AccountNav';
 import Books from './pages/Books/Books';
+import Settings from './pages/Settings/Settings';
 import Overview from './pages/Overview/Overview';
+import { useParams } from 'react-router-dom';
 
-const Account = ({ navbarLinks, accountLinks, user, books, route = '' }) => {
+const Account = ({ navbarLinks, accountLinks, user, books }) => {
+  const { route } = useParams();
   const routes = {
     books: (
       <Books
@@ -14,6 +17,7 @@ const Account = ({ navbarLinks, accountLinks, user, books, route = '' }) => {
         books={books}
       />
     ),
+    settings: <Settings user={user} />,
   };
 
   const routeSelector = () => {
@@ -26,6 +30,7 @@ const Account = ({ navbarLinks, accountLinks, user, books, route = '' }) => {
       />
     );
   };
+
   return (
     <div className="accountPage">
       <TopBar

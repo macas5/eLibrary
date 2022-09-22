@@ -2,6 +2,7 @@ export const user = {
   username: 'usrnm',
   name: 'User Name',
   booksOwned: ['2', '3', '5'],
+  email: 'usrname@email.com',
 };
 
 const Book = (
