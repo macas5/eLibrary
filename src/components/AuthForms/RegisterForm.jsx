@@ -1,4 +1,5 @@
 import "./AuthForms.css";
+import { Link } from 'react-router-dom';
 
 const RegisterForm = () => {
   return (
@@ -25,7 +26,9 @@ const RegisterForm = () => {
             <div className="authFormSecondSection">
                 <div className="authFormSectionTitle">Already have an account?</div>
                 <div className="authFormButton">
-                    <button>Login</button>
+                    <Link to="/login">
+                      <button>Login</button>
+                    </Link>
                 </div>   
             </div>  
         </div>
