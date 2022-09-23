@@ -4,6 +4,7 @@ import MainPage from './pages/MainPage/MainPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import Search from './pages/Search/Search';
+import ProductPage from './pages/ProductPage/ProductPage';
 
 import './App.css';
 
@@ -64,6 +65,15 @@ function App() {
             path="/search/:searchValue"
             element={
               <Search
+                navbarLinks={navbarLinks}
+                accountLinks={accountLinks}
+              />
+            }
+          />
+          <Route
+            path="/book"
+            element={
+              <ProductPage
                 navbarLinks={navbarLinks}
                 accountLinks={accountLinks}
               />
