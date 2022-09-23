@@ -1,31 +1,31 @@
 import './ProductInfo.css';
 
-const ProductInfo = () => {
-  return (
+const ProductInfo = ({ book }) => {  
+    return (
     <div className="productPageWrapper">
         <div className="productInfoContainer">
-        <div className="productTitle">Book title</div>
+        <div className="productTitle">{ book.title }</div>
             <div className="productInfoLeft">
                 <table className="productInfoTable">
                     <tr>
                         <td>Title and other details</td>
-                        <td>Book title</td>
+                        <td>{ book.title }</td>
                     </tr>
                     <tr>
                         <td>Author(-s)</td>
-                        <td>Author name, surname</td>
+                        <td>{ book.author }</td>
                     </tr>
                     <tr>
                         <td>Publication details</td>
-                        <td>Publishing company</td>
+                        <td>Publishing company, { book.publicationDate }</td>
                     </tr>
                     <tr>
                         <td>Physical data</td>
-                        <td>Files</td>
+                        <td>{ book.form }</td>
                     </tr>
                     <tr>
                         <td>Language</td>
-                        <td>Book's language</td>
+                        <td>{ book.language }</td>
                     </tr>
                     <tr>
                         <td>Audience</td>
@@ -38,13 +38,14 @@ const ProductInfo = () => {
                 </table>
             </div>
             <div className="productInfoRight">
-                <div className="bookCoverDummy">
-                    Book cover
-                </div>
+                <img className="productImage"
+                    src={ book.imageLink !== '' ? book.imageLink : 'https://media.istockphoto.com/vectors/photo-coming-soon-image-icon-vector-illustration-isolated-on-white-vector-id1193060544?k=20&m=1193060544&s=612x612&w=0&h=MI8y2q1HsY4TEAZD3tNCJN3bmc39N3pnFKC2KKNDUmE=' }
+                    alt={book.title}
+                />
             </div>
         </div>
     </div>
-  );
+    );
 };
 
 export default ProductInfo;

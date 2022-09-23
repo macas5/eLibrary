@@ -98,11 +98,12 @@ function App() {
             }
           />
           <Route
-            path="/book"
+            path="/book/:bookId"
             element={
               <ProductPage
                 navbarLinks={navbarLinks}
                 accountLinks={accountLinks}
+                books={books}
               />
             }
           />
