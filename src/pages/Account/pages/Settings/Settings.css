@@ -1,0 +1,32 @@
+.accountSettings {
+  margin-top: 10px;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.passwordField,
+.basicInfo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.basicInfo>div,
+.passwordField>div {
+  margin: 10px;
+  width: 400px;
+}
+
+.accountSettingsWrapper button {
+  margin-left: 155px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+.success {
+  color: green;
+  text-align: center;
+}
