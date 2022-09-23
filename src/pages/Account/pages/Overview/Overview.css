@@ -1,0 +1,12 @@
+.overview {
+  margin-top: 10px;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+
+
+.accountBooks {
+  width: 65%;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}

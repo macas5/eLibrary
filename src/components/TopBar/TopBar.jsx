@@ -197,19 +197,15 @@ const TopBar = ({ navbarLinks, accountLinks }) => {
                 onClose={handleCloseUserMenu}
               >
                 {settings.map((setting) => (
-                  <MenuItem
+                  <Link
+                    className="link"
                     key={setting.name}
-                    onClick={handleCloseUserMenu}
+                    to={setting.path}
                   >
-                    <Typography textAlign="center">
-                      <Link
-                        className="link"
-                        to={setting.path}
-                      >
-                        {setting.name}
-                      </Link>
-                    </Typography>
-                  </MenuItem>
+                    <MenuItem onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">{setting.name}</Typography>
+                    </MenuItem>
+                  </Link>
                 ))}
               </Menu>
             </Box>

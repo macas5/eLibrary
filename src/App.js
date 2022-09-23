@@ -4,9 +4,11 @@ import MainPage from './pages/MainPage/MainPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import Search from './pages/Search/Search';
+import Account from './pages/Account/Account';
 import ProductPage from './pages/ProductPage/ProductPage';
 
 import './App.css';
+import { books, user } from './dummyData';
 
 const navbarLinks = [
   { name: 'eBooks', path: '/search/?readonline=true' },
@@ -16,7 +18,8 @@ const navbarLinks = [
 ];
 
 const accountLinks = [
-  { name: 'Account', path: '/' },
+  { name: 'Account', path: '/account' },
+  { name: 'Messages', path: '/account/messages' },
   { name: 'Logout', path: '/' },
 ];
 
@@ -58,6 +61,7 @@ function App() {
               <Search
                 navbarLinks={navbarLinks}
                 accountLinks={accountLinks}
+                books={books}
               />
             }
           />
@@ -67,6 +71,29 @@ function App() {
               <Search
                 navbarLinks={navbarLinks}
                 accountLinks={accountLinks}
+                books={books}
+              />
+            }
+          />
+          <Route
+            path="/account"
+            element={
+              <Account
+                navbarLinks={navbarLinks}
+                accountLinks={accountLinks}
+                user={user}
+                books={books}
+              />
+            }
+          />
+          <Route
+            path="/account/:route"
+            element={
+              <Account
+                navbarLinks={navbarLinks}
+                accountLinks={accountLinks}
+                user={user}
+                books={books}
               />
             }
           />

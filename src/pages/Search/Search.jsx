@@ -4,7 +4,7 @@ import SearchResults from '../../components/SearchResults/SearchResults';
 import TopBar from '../../components/TopBar/TopBar';
 import { useParams, useSearchParams } from 'react-router-dom';
 
-const Search = ({ navbarLinks, accountLinks }) => {
+const Search = ({ navbarLinks, accountLinks, books }) => {
   const { searchValue } = useParams();
   const [searchParams] = useSearchParams();
   const readOnline = `${searchParams.get('readonline')}`;
@@ -21,6 +21,7 @@ const Search = ({ navbarLinks, accountLinks }) => {
       <SearchResults
         searchValue={searchValue}
         isOnlineReadable={readOnline}
+        books={books}
       />
       <Footer />
     </>
