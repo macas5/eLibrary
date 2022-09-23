@@ -1,13 +1,16 @@
 import { Button, TextField } from '@mui/material';
+import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import AccountInfo from '../../components/AccountInfo/AccountInfo';
 
 import './Settings.css';
 
-const Settings = ({ user }) => {
+const Settings = ({ user, backendUrl, setUserState }) => {
   const [updatedUserData, setUpdatedUserData] = useState({});
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const nav = useNavigate();
 
   const handleFormChange = (e) => {
     e.target.value
@@ -33,31 +36,42 @@ const Settings = ({ user }) => {
     return pass1 && pass2 && pass1 === pass2 ? true : false;
   };
 
-  const handleSubmit = () => {
+  const isNameCorrect = (name) => !name || name.split(' ').length > 1;
+
+  const sendData = async (data) => {
+    return await axios.put(`${backendUrl}/user/update/${user._id}`, data, {
+      withCredentials: true,
+    });
+  };
+
+  const handleSubmit = async () => {
+    if (!isNameCorrect(updatedUserData.name)) {
+      setSuccess('');
+      return setError('Please enter your full name');
+    }
+
     if (!isPasswordFieldsFilled()) {
       setError('');
       setSuccess('Data updated successfuly');
-      console.log(updatedUserData);
+      const { data } = await sendData({ updatedUserData });
+      data && setUserState(data);
       return;
     }
 
     if (
-      isPasswordsMatch(user.password, updatedUserData.currPassword) &&
       isPasswordsMatch(
         updatedUserData.newPassword,
         updatedUserData.newPasswordRepeat
       )
     ) {
-      const newData = {
-        ...updatedUserData,
-        password: updatedUserData.newPassword,
-      };
-      delete newData.currPassword;
-      delete newData.newPassword;
-      delete newData.newPasswordRepeat;
-      setError('');
-      setSuccess('Data updated successfuly');
-      console.log(newData);
+      try {
+        const { data } = await sendData({ updatedUserData });
+        data && setUserState(null);
+        nav('/');
+      } catch (error) {
+        if (error.response.status === 405) setError('Invalid current password');
+        console.log(error);
+      }
     } else {
       setSuccess('');
       setError('Either current or new passwords do not match');

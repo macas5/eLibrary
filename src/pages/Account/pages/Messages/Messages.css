@@ -4,6 +4,10 @@
   margin-bottom: 20px;
 }
 
+.messagesWrapper {
+  width: 100%;
+}
+
 .messagesWrapper h2 {
   margin-bottom: 20px;
 }

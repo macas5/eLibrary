@@ -21,12 +21,12 @@
   margin-left: 155px;
 }
 
-.error {
+.accountSettingsWrapper .error {
   color: red;
   text-align: center;
 }
 
-.success {
+.accountSettingsWrapper .success {
   color: green;
   text-align: center;
 }
