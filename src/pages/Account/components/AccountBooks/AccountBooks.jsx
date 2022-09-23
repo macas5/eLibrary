@@ -6,8 +6,7 @@ const AccountBooks = ({ user, books }) => {
   const [bookList, setbookList] = useState(books);
 
   useState(() => {
-    if (books) {
-      console.log(books);
+    if (books && user) {
       const filteredBooks = books.filter((book) =>
         user.booksOwned.includes(book._id)
       );

@@ -9,7 +9,14 @@ import Overview from './pages/Overview/Overview';
 import { useParams } from 'react-router-dom';
 import Messages from './pages/Messages/Messages';
 
-const Account = ({ navbarLinks, accountLinks, user, books }) => {
+const Account = ({
+  navbarLinks,
+  accountLinks,
+  user,
+  books,
+  backendUrl,
+  setUserState,
+}) => {
   const { route } = useParams();
   const routes = {
     books: (
@@ -18,7 +25,13 @@ const Account = ({ navbarLinks, accountLinks, user, books }) => {
         books={books}
       />
     ),
-    settings: <Settings user={user} />,
+    settings: (
+      <Settings
+        user={user}
+        backendUrl={backendUrl}
+        setUserState={setUserState}
+      />
+    ),
     messages: <Messages user={user} />,
   };
 
@@ -38,6 +51,7 @@ const Account = ({ navbarLinks, accountLinks, user, books }) => {
       <TopBar
         navbarLinks={navbarLinks}
         accountLinks={accountLinks}
+        user={user}
       />
       <SearchBar isMini={true} />
       <Container>

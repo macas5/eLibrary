@@ -38,13 +38,14 @@
     left: 11px;
     top: -8px;
     font-size: 11px;
-    line-height: 17px;    
+    line-height: 17px;
     background: #fff;
     color: rgba(0, 0, 0, 0.6);
     padding: 0px 5px;
 }
 
-.authFormWrapper input, input:focus {
+.authFormWrapper input,
+input:focus {
     background: transparent;
     border: 1px solid #BABABA;
     outline: none;
@@ -76,4 +77,10 @@
 
 .authFormSectionTitle {
     margin-bottom: 15px;
+}
+
+.authFormButton .error {
+    text-align: center;
+    color: red;
+    font-size: 0.75rem;
 }

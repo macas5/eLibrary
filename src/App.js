@@ -7,9 +7,9 @@ import Search from './pages/Search/Search';
 import Account from './pages/Account/Account';
 
 import './App.css';
-import { user } from './dummyData';
 import connection from './utils/connection';
 import { useEffect, useState } from 'react';
+import Logout from './components/Logout/Logout';
 
 const navbarLinks = [
   { name: 'eBooks', path: '/search/?readonline=true' },
@@ -21,7 +21,7 @@ const navbarLinks = [
 const accountLinks = [
   { name: 'Account', path: '/account' },
   { name: 'Messages', path: '/account/messages' },
-  { name: 'Logout', path: '/' },
+  { name: 'Logout', path: '/logout' },
 ];
 
 const backendUrl = 'http://localhost:3001';
@@ -29,11 +29,22 @@ const backendUrl = 'http://localhost:3001';
 function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [user, setUser] = useState(null);
   const {
     dataState: books,
     loading: booksLoading,
     error: booksError,
   } = connection(`${backendUrl}/book/get`, 'GET');
+
+  const { dataState: resUser } = connection(`${backendUrl}/user/getown`, 'GET');
+
+  const setUserState = (user) => {
+    setUser(user);
+  };
+
+  useEffect(() => {
+    setUser(resUser);
+  }, [resUser]);
 
   useEffect(() => {
     setLoading(booksLoading ? true : false);
@@ -51,6 +62,7 @@ function App() {
                 <MainPage
                   navbarLinks={navbarLinks}
                   accountLinks={accountLinks}
+                  user={user}
                 />
               }
             />
@@ -60,6 +72,9 @@ function App() {
                 <LoginPage
                   navbarLinks={navbarLinks}
                   accountLinks={accountLinks}
+                  user={user}
+                  backendUrl={backendUrl}
+                  setUserState={setUserState}
                 />
               }
             />
@@ -69,6 +84,9 @@ function App() {
                 <RegisterPage
                   navbarLinks={navbarLinks}
                   accountLinks={accountLinks}
+                  user={user}
+                  backendUrl={backendUrl}
+                  setUserState={setUserState}
                 />
               }
             />
@@ -78,6 +96,7 @@ function App() {
                 <Search
                   navbarLinks={navbarLinks}
                   accountLinks={accountLinks}
+                  user={user}
                   books={books}
                 />
               }
@@ -88,6 +107,7 @@ function App() {
                 <Search
                   navbarLinks={navbarLinks}
                   accountLinks={accountLinks}
+                  user={user}
                   books={books}
                 />
               }
@@ -100,6 +120,8 @@ function App() {
                   accountLinks={accountLinks}
                   user={user}
                   books={books}
+                  backendUrl={backendUrl}
+                  setUserState={setUserState}
                 />
               }
             />
@@ -111,6 +133,17 @@ function App() {
                   accountLinks={accountLinks}
                   user={user}
                   books={books}
+                  backendUrl={backendUrl}
+                  setUserState={setUserState}
+                />
+              }
+            />
+            <Route
+              path="/logout"
+              element={
+                <Logout
+                  backendUrl={backendUrl}
+                  setUserState={setUserState}
                 />
               }
             />

@@ -9,7 +9,7 @@ const showBookSearchResults = (bookList) => {
           return (
             <Link
               className="link"
-              to={`/book/${book.id}`}
+              to={`/book/${book._id}`}
               key={index}
             >
               <ListItem key={index + 'item'}>
