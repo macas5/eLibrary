@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import Search from './pages/Search/Search';
 import Account from './pages/Account/Account';
+import ProductPage from './pages/ProductPage/ProductPage';
 
 import './App.css';
 import connection from './utils/connection';
@@ -147,6 +148,17 @@ function App() {
                 />
               }
             />
+            <Route
+            path="/book/:bookId"
+            element={
+              <ProductPage
+                navbarLinks={navbarLinks}
+                accountLinks={accountLinks}
+                books={books}
+                user={user}
+              />
+            }
+          />
           </Routes>
         </BrowserRouter>
       ) : (
