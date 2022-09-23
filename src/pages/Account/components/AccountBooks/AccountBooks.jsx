@@ -3,13 +3,16 @@ import showBookSearchResults from '../../../../helperComponents/bookSearch';
 import './AccountBooks.css';
 
 const AccountBooks = ({ user, books }) => {
-  const [bookList, setbookList] = useState([...books]);
+  const [bookList, setbookList] = useState(books);
 
   useState(() => {
-    const filteredBooks = books.filter((book) =>
-      user.booksOwned.includes(book.id)
-    );
-    setbookList(filteredBooks);
+    if (books) {
+      console.log(books);
+      const filteredBooks = books.filter((book) =>
+        user.booksOwned.includes(book._id)
+      );
+      setbookList(filteredBooks);
+    }
   }, []);
 
   return (
