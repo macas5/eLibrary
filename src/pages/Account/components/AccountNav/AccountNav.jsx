@@ -8,13 +8,13 @@ const AccountNav = () => {
         <Link to="/account">
           <li>Account</li>
         </Link>
+        <li>Pending Orders</li>
         <Link to="/account/books">
           <li>My Books</li>
         </Link>
         <Link to="/account/messages">
           <li>Messages</li>
         </Link>
-        <li>Orders</li>
         <Link to="/account/settings">
           <li>Settings</li>
         </Link>
