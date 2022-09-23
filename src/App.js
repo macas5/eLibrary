@@ -16,6 +16,7 @@ const navbarLinks = [
 
 const accountLinks = [
   { name: 'Account', path: '/account' },
+  { name: 'Messages', path: '/account/messages' },
   { name: 'Logout', path: '/' },
 ];
 

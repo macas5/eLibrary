@@ -7,6 +7,7 @@ import Books from './pages/Books/Books';
 import Settings from './pages/Settings/Settings';
 import Overview from './pages/Overview/Overview';
 import { useParams } from 'react-router-dom';
+import Messages from './pages/Messages/Messages';
 
 const Account = ({ navbarLinks, accountLinks, user, books }) => {
   const { route } = useParams();
@@ -18,10 +19,11 @@ const Account = ({ navbarLinks, accountLinks, user, books }) => {
       />
     ),
     settings: <Settings user={user} />,
+    messages: <Messages user={user} />,
   };
 
   const routeSelector = () => {
-    return route ? (
+    return route && Object.keys(routes).includes(route) ? (
       routes[route]
     ) : (
       <Overview

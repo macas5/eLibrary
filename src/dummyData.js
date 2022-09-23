@@ -4,6 +4,27 @@ export const user = {
   password: '123',
   booksOwned: ['2', '3', '5'],
   email: 'usrname@email.com',
+  messages: [
+    {
+      from: 'Admin',
+      date: '2022-09-20',
+      topic: 'Test message',
+      content: 'This is a test message from the admin',
+    },
+    {
+      from: 'Librarian',
+      date: '2022-09-22',
+      topic: 'Your books are ready',
+      content: 'The books you ordered are ready',
+    },
+    {
+      from: 'Librarian',
+      date: '2022-09-23',
+      topic: 'Updated stock',
+      content:
+        'Hi, we wanted to inform you, that we have added more books to our library. We hope you will enjoy them!',
+    },
+  ],
 };
 
 const Book = (
