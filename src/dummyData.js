@@ -1,6 +1,7 @@
 export const user = {
   username: 'usrnm',
   name: 'User Name',
+  password: '123',
   booksOwned: ['2', '3', '5'],
   email: 'usrname@email.com',
 };

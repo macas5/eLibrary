@@ -20,3 +20,13 @@
 .accountSettingsWrapper button {
   margin-left: 155px;
 }
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+.success {
+  color: green;
+  text-align: center;
+}
