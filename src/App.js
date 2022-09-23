@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import Search from './pages/Search/Search';
 import Account from './pages/Account/Account';
+import ProductPage from './pages/ProductPage/ProductPage';
 
 import './App.css';
 import { books, user } from './dummyData';
@@ -93,6 +94,15 @@ function App() {
                 accountLinks={accountLinks}
                 user={user}
                 books={books}
+              />
+            }
+          />
+          <Route
+            path="/book"
+            element={
+              <ProductPage
+                navbarLinks={navbarLinks}
+                accountLinks={accountLinks}
               />
             }
           />
