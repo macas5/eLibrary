@@ -149,16 +149,16 @@ function App() {
               }
             />
             <Route
-            path="/book/:bookId"
-            element={
-              <ProductPage
-                navbarLinks={navbarLinks}
-                accountLinks={accountLinks}
-                books={books}
-                user={user}
-              />
-            }
-          />
+              path="/book/:bookId"
+              element={
+                <ProductPage
+                  navbarLinks={navbarLinks}
+                  accountLinks={accountLinks}
+                  books={books}
+                  // user={user}
+                />
+              }
+            />
           </Routes>
         </BrowserRouter>
       ) : (
