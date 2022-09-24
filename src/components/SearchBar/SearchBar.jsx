@@ -105,6 +105,7 @@ const SearchBar = ({ isMini = false, urlValue = '', backendUrl }) => {
               onChange={handleItemSelect}
               renderInput={(params) => (
                 <TextField
+                  variant="filled"
                   {...params}
                   label="Search books..."
                   InputProps={{
