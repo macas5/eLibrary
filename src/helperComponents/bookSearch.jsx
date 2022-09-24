@@ -1,7 +1,12 @@
-import { Divider, List, ListItem } from '@mui/material';
+import { Divider, List, ListItem, Pagination } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const showBookSearchResults = (bookList) => {
+const showBookSearchResults = (bookList, pageCount, setPage) => {
+  const handlePageChange = (e) => {
+    setPage(e.target.innerText - 1);
+    window.scrollTo(0, 315);
+  };
+
   return (
     bookList && (
       <List key="bookList">
@@ -47,6 +52,16 @@ const showBookSearchResults = (bookList) => {
             </Link>
           );
         })}
+        <div className="pagination">
+          {pageCount > 1 && (
+            <Pagination
+              hideNextButton
+              hidePrevButton
+              onClick={handlePageChange}
+              count={pageCount}
+            />
+          )}
+        </div>
       </List>
     )
   );
