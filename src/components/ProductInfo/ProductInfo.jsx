@@ -1,6 +1,21 @@
 import './ProductInfo.css';
+import axios from 'axios';
 
-const ProductInfo = ({ book }) => {
+const ProductInfo = ({ book, user }) => {
+  
+  const addBook = async () => {
+    if(user) {
+      const booksOwnedNew = [...user.booksOwned, book._id];
+      try {
+        const newData = { ...user, booksOwned: booksOwnedNew };
+        console.log(newData);
+        await axios.put(`http://localhost:3001/user/update/${user._id}`, { booksOwned: booksOwnedNew });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+  
   return (
     <div className="productPageWrapper">
       <div className="productInfoContainer">
@@ -49,7 +64,7 @@ const ProductInfo = ({ book }) => {
             }
             alt={book.title}
           />
-          <button className="productAddButton">Add to my books</button>
+          <button onClick={ addBook } className="productAddButton">Add to my books</button>
         </div>
       </div>
     </div>
