@@ -31,14 +31,12 @@
   flex-wrap: wrap;
 }
 
-.searchForm div {
-  margin-bottom: 5px;
+.searchFormWrapper {
+  width: 400px;
 }
 
-#searchField {
-  width: 300px;
+.searchFormWrapper>div>div {
   background-color: white;
-  padding-top: 20px;
 }
 
 #searchButton {

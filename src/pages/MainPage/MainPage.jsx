@@ -3,7 +3,7 @@ import Footer from '../../components/Footer/Footer';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import TopBar from '../../components/TopBar/TopBar';
 
-const MainPage = ({ navbarLinks, accountLinks, user, books }) => {
+const MainPage = ({ navbarLinks, accountLinks, user, books, backendUrl }) => {
   return (
     <>
       {books && (
@@ -13,7 +13,10 @@ const MainPage = ({ navbarLinks, accountLinks, user, books }) => {
             accountLinks={accountLinks}
             user={user}
           />
-          <SearchBar isMini={false} />
+          <SearchBar
+            isMini={false}
+            backendUrl={backendUrl}
+          />
           <BookDisplay books={books} />
           <Footer />
         </>

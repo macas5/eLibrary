@@ -53,7 +53,10 @@ const Account = ({
         accountLinks={accountLinks}
         user={user}
       />
-      <SearchBar isMini={true} />
+      <SearchBar
+        isMini={true}
+        backendUrl={backendUrl}
+      />
       <Container>
         <AccountNav />
         {routeSelector()}

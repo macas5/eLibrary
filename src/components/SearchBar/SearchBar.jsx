@@ -1,17 +1,71 @@
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import SearchIcon from '@mui/icons-material/Search';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import debounce from 'lodash.debounce';
 
 import './SearchBar.css';
+import { Autocomplete, CircularProgress } from '@mui/material';
+import axios from 'axios';
 
-const SearchBar = ({ isMini = false, value = '' }) => {
-  const [searchValues, setSearchValues] = useState(value);
+const SearchBar = ({ isMini = false, urlValue = '', backendUrl }) => {
+  const [searchValues, setSearchValues] = useState(urlValue);
+  const [open, setOpen] = useState(false);
+  const [options, setOptions] = useState([]);
+  const loading = open && options.length === 0;
+
   const nav = useNavigate();
 
+  const debouncedSearch = useCallback(
+    debounce((e) => getTitlesFromDb(e.target.value), 500),
+    []
+  );
+
+  const getTitlesFromDb = async (input) => {
+    if (input) {
+      const { data } = await axios.post(`${backendUrl}/book/find`, {
+        searchQuery: input,
+      });
+      setOptions(data);
+    } else {
+      setOptions([]);
+    }
+  };
+
+  useEffect(() => {
+    let active = true;
+
+    if (!loading) {
+      return undefined;
+    }
+
+    (async () => {
+      if (active) {
+        const { data } = await axios.get(`${backendUrl}/book/get`);
+        setOptions(data);
+      }
+    })();
+
+    return () => {
+      active = false;
+    };
+  }, [backendUrl, loading]);
+
+  useEffect(() => {
+    if (!open) {
+      setOptions([]);
+    }
+  }, [open]);
+
   const handleSearchInput = (e) => {
+    debouncedSearch(e);
     setSearchValues(e.target.value);
+  };
+
+  const handleItemSelect = (e) => {
+    const book = options.find((book) => book.title === e.target.innerHTML);
+    nav(`/book/${book._id}`);
   };
 
   const handleSearchSubmit = (e) => {
@@ -26,14 +80,52 @@ const SearchBar = ({ isMini = false, value = '' }) => {
       <div className="searchBarWrapper">
         <h1>Search</h1>
         <div className="searchForm">
-          <TextField
-            id="searchField"
-            variant="filled"
-            label="Type what you are looking for..."
-            defaultValue={searchValues}
-            onKeyDown={handleSearchSubmit}
-            onChange={handleSearchInput}
-          />
+          <div className="searchFormWrapper">
+            <Autocomplete
+              id="searchField"
+              open={open}
+              freeSolo
+              onOpen={() => {
+                setOpen(true);
+              }}
+              onClose={() => {
+                setOpen(false);
+              }}
+              isOptionEqualToValue={(option, value) =>
+                option.title === value.title
+              }
+              getOptionLabel={(option) =>
+                option.title ? option.title : option
+              }
+              options={options}
+              loading={loading}
+              filterOptions={(x) => x}
+              onInputChange={handleSearchInput}
+              onKeyDown={handleSearchSubmit}
+              onChange={handleItemSelect}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label="Search books..."
+                  InputProps={{
+                    ...params.InputProps,
+                    endAdornment: (
+                      <>
+                        {loading ? (
+                          <CircularProgress
+                            color="inherit"
+                            size={20}
+                          />
+                        ) : null}
+                        {params.InputProps.endAdornment}
+                      </>
+                    ),
+                  }}
+                />
+              )}
+            />
+          </div>
+
           <Link to={`/search/${searchValues}`}>
             <Button
               variant="contained"
