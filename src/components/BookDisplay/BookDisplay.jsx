@@ -1,4 +1,5 @@
 import Button from '@mui/material/Button';
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
 import './BookDisplay.css';
@@ -31,20 +32,28 @@ const books = [
   },
 ];
 
-const BookDisplay = () => {
+const BookDisplay = ({ books }) => {
+  const selectedBooks = useMemo(() => {
+    const filteredBooks = books.filter(
+      (book) => book.isReadableOnline === 'true'
+    );
+    const shuffledBooks = filteredBooks.sort(() => 0.5 - Math.random());
+    return shuffledBooks.slice(0, 5);
+  }, [books]);
+
   return (
     <div className="bookDisplay">
       <div className="bookDisplayWrapper">
         <h1>eBooks</h1>
         <div className="bookDisplayShowcase">
-          {books.map((book, index) => (
+          {selectedBooks.map((book) => (
             <Link
-              key={book.image}
-              to={book.link}
+              key={book._id}
+              to={`/book/${book._id}`}
             >
               <img
-                src={book.image}
-                alt={`book${index}`}
+                src={book.imageLink}
+                alt={book.title}
               />
             </Link>
           ))}
