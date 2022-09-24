@@ -49,6 +49,7 @@ const ProductInfo = ({ book }) => {
             }
             alt={book.title}
           />
+          <button className="productAddButton">Add to my books</button>
         </div>
       </div>
     </div>
