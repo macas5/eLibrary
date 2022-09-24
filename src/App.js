@@ -155,7 +155,7 @@ function App() {
                   navbarLinks={navbarLinks}
                   accountLinks={accountLinks}
                   books={books}
-                  // user={user}
+                  user={user}
                 />
               }
             />
