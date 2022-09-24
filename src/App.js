@@ -64,6 +64,8 @@ function App() {
                   navbarLinks={navbarLinks}
                   accountLinks={accountLinks}
                   user={user}
+                  books={books}
+                  backendUrl={backendUrl}
                 />
               }
             />
@@ -99,6 +101,7 @@ function App() {
                   accountLinks={accountLinks}
                   user={user}
                   books={books}
+                  backendUrl={backendUrl}
                 />
               }
             />
@@ -110,6 +113,7 @@ function App() {
                   accountLinks={accountLinks}
                   user={user}
                   books={books}
+                  backendUrl={backendUrl}
                 />
               }
             />

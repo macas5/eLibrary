@@ -3,17 +3,24 @@ import Footer from '../../components/Footer/Footer';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import TopBar from '../../components/TopBar/TopBar';
 
-const MainPage = ({ navbarLinks, accountLinks, user }) => {
+const MainPage = ({ navbarLinks, accountLinks, user, books, backendUrl }) => {
   return (
     <>
-      <TopBar
-        navbarLinks={navbarLinks}
-        accountLinks={accountLinks}
-        user={user}
-      />
-      <SearchBar isMini={false} />
-      <BookDisplay />
-      <Footer />
+      {books && (
+        <>
+          <TopBar
+            navbarLinks={navbarLinks}
+            accountLinks={accountLinks}
+            user={user}
+          />
+          <SearchBar
+            isMini={false}
+            backendUrl={backendUrl}
+          />
+          <BookDisplay books={books} />
+          <Footer />
+        </>
+      )}
     </>
   );
 };

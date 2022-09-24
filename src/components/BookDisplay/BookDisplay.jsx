@@ -1,50 +1,33 @@
 import Button from '@mui/material/Button';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import './BookDisplay.css';
 
-const books = [
-  {
-    image:
-      'https://ibiblioteka.lt/metis-api/front-page/electronic-books/1/cover',
-    link: '/',
-  },
-  {
-    image:
-      'https://ibiblioteka.lt/metis-api/front-page/electronic-books/2/cover',
-    link: '/',
-  },
-  {
-    image:
-      'https://ibiblioteka.lt/metis-api/front-page/electronic-books/3/cover',
-    link: '/',
-  },
-  {
-    image:
-      'https://ibiblioteka.lt/metis-api/front-page/electronic-books/4/cover',
-    link: '/',
-  },
-  {
-    image:
-      'https://ibiblioteka.lt/metis-api/front-page/electronic-books/5/cover',
-    link: '/',
-  },
-];
+const BookDisplay = ({ books }) => {
+  const getRandomBooks = (books) => {
+    const filteredBooks = books.filter(
+      (book) => book.isReadableOnline === 'true'
+    );
+    const shuffledBooks = filteredBooks.sort(() => 0.5 - Math.random());
+    return shuffledBooks.slice(0, 5);
+  };
 
-const BookDisplay = () => {
+  const selectedBooks = useRef(getRandomBooks(books)).current;
+
   return (
     <div className="bookDisplay">
       <div className="bookDisplayWrapper">
         <h1>eBooks</h1>
         <div className="bookDisplayShowcase">
-          {books.map((book, index) => (
+          {selectedBooks.map((book) => (
             <Link
-              key={book.image}
-              to={book.link}
+              key={book._id}
+              to={`/book/${book._id}`}
             >
               <img
-                src={book.image}
-                alt={`book${index}`}
+                src={book.imageLink}
+                alt={book.title}
               />
             </Link>
           ))}
