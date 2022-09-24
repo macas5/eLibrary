@@ -16,11 +16,10 @@ import { Link } from 'react-router-dom';
 
 import './TopBar.css';
 
-const TopBar = ({ navbarLinks, accountLinks }) => {
+const TopBar = ({ navbarLinks, accountLinks, user }) => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
-  const [isAuthed, setIsAuthed] = useState(false);
-  const [pages, setPages] = useState([...navbarLinks]);
+  const [pages, setPages] = useState(navbarLinks);
   const settings = [...accountLinks];
 
   const handleOpenNavMenu = (event) => {
@@ -39,17 +38,15 @@ const TopBar = ({ navbarLinks, accountLinks }) => {
   };
 
   useEffect(() => {
-    setIsAuthed(false);
-    if (isAuthed) {
-      const filteredList = pages.filter((page) => {
+    if (user) {
+      const filteredList = navbarLinks.filter((page) => {
         return page.name !== 'Login' && page.name !== 'Register';
       });
       setPages(filteredList);
     } else {
       setPages(navbarLinks);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthed]);
+  }, [navbarLinks, user]);
 
   return (
     <AppBar
@@ -167,17 +164,18 @@ const TopBar = ({ navbarLinks, accountLinks }) => {
             ))}
           </Box>
           {/* IsAuthed? */}
-          {isAuthed && (
+          {user && (
             <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
+              <Tooltip title="Account">
                 <IconButton
                   onClick={handleOpenUserMenu}
                   sx={{ p: 0 }}
                 >
-                  <Avatar
-                    alt="Remy Sharp"
-                    src="/static/images/avatar/2.jpg"
-                  />
+                  {user.name && (
+                    <Avatar>{`${user.name.split(' ')[0][0]}${
+                      user.name.split(' ')[1][0]
+                    }`}</Avatar>
+                  )}
                 </IconButton>
               </Tooltip>
               <Menu

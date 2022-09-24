@@ -4,7 +4,7 @@ import SearchResults from '../../components/SearchResults/SearchResults';
 import TopBar from '../../components/TopBar/TopBar';
 import { useParams, useSearchParams } from 'react-router-dom';
 
-const Search = ({ navbarLinks, accountLinks, books }) => {
+const Search = ({ navbarLinks, accountLinks, books, user }) => {
   const { searchValue } = useParams();
   const [searchParams] = useSearchParams();
   const readOnline = `${searchParams.get('readonline')}`;
@@ -13,6 +13,7 @@ const Search = ({ navbarLinks, accountLinks, books }) => {
       <TopBar
         navbarLinks={navbarLinks}
         accountLinks={accountLinks}
+        user={user}
       />
       <SearchBar
         isMini={true}
