@@ -60,7 +60,7 @@ const SearchBar = ({ isMini = false, urlValue = '', backendUrl }) => {
 
   const handleSearchInput = (e) => {
     debouncedSearch(e);
-    setSearchValues(e.target.value);
+    e.target.value ? setSearchValues(e.target.value) : setSearchValues([]);
   };
 
   const handleItemSelect = (e) => {
