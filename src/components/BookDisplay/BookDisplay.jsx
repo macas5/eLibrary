@@ -1,45 +1,19 @@
 import Button from '@mui/material/Button';
-import { useMemo } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import './BookDisplay.css';
 
-const books = [
-  {
-    image:
-      'https://ibiblioteka.lt/metis-api/front-page/electronic-books/1/cover',
-    link: '/',
-  },
-  {
-    image:
-      'https://ibiblioteka.lt/metis-api/front-page/electronic-books/2/cover',
-    link: '/',
-  },
-  {
-    image:
-      'https://ibiblioteka.lt/metis-api/front-page/electronic-books/3/cover',
-    link: '/',
-  },
-  {
-    image:
-      'https://ibiblioteka.lt/metis-api/front-page/electronic-books/4/cover',
-    link: '/',
-  },
-  {
-    image:
-      'https://ibiblioteka.lt/metis-api/front-page/electronic-books/5/cover',
-    link: '/',
-  },
-];
-
 const BookDisplay = ({ books }) => {
-  const selectedBooks = useMemo(() => {
+  const getRandomBooks = (books) => {
     const filteredBooks = books.filter(
       (book) => book.isReadableOnline === 'true'
     );
     const shuffledBooks = filteredBooks.sort(() => 0.5 - Math.random());
     return shuffledBooks.slice(0, 5);
-  }, [books]);
+  };
+
+  const selectedBooks = useRef(getRandomBooks(books)).current;
 
   return (
     <div className="bookDisplay">
