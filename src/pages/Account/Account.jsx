@@ -9,6 +9,7 @@ import Overview from './pages/Overview/Overview';
 import { useParams } from 'react-router-dom';
 import Messages from './pages/Messages/Messages';
 import SendMessage from './pages/SendMessage/SendMessage';
+import ManageBooks from './pages/ManageBooks/ManageBooks';
 
 const Account = ({
   navbarLinks,
@@ -20,20 +21,20 @@ const Account = ({
 }) => {
   const { route } = useParams();
   const routes = {
-    books: (
+    books: user && (
       <Books
         user={user}
         books={books}
       />
     ),
-    settings: (
+    settings: user && (
       <Settings
         user={user}
         backendUrl={backendUrl}
         setUserState={setUserState}
       />
     ),
-    messages: (
+    messages: user && (
       <Messages
         setUserState={setUserState}
         backendUrl={backendUrl}
@@ -46,17 +47,18 @@ const Account = ({
         backendUrl={backendUrl}
       />
     ),
+    manage: user && user.isAdmin && <ManageBooks />,
   };
 
   const routeSelector = () => {
-    return route && Object.keys(routes).includes(route) ? (
-      routes[route]
-    ) : (
-      <Overview
-        user={user}
-        books={books}
-      />
-    );
+    return user && route && Object.keys(routes).includes(route)
+      ? routes[route]
+      : user && (
+          <Overview
+            user={user}
+            books={books}
+          />
+        );
   };
   return (
     <div className="accountPage">
