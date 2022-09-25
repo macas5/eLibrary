@@ -2,20 +2,23 @@ import './ProductInfo.css';
 import axios from 'axios';
 
 const ProductInfo = ({ book, user }) => {
-  
   const addBook = async () => {
-    if(user) {
+    if (user) {
       var booksOwnedNew = user.booksOwned;
       booksOwnedNew.push(book._id);
-      console.log(booksOwnedNew)   
+      console.log(booksOwnedNew);
       try {
-        await axios.put(`http://localhost:3001/user/update/${user._id}`, { booksOwned: booksOwnedNew });
+        await axios.put(
+          `http://localhost:3001/user/update/${user._id}`,
+          { booksOwned: booksOwnedNew },
+          { withCredentials: true }
+        );
       } catch (error) {
         console.log(error);
       }
     }
   };
-  
+
   return (
     <div className="productPageWrapper">
       <div className="productInfoContainer">
@@ -64,7 +67,12 @@ const ProductInfo = ({ book, user }) => {
             }
             alt={book.title}
           />
-          <button onClick={ addBook } className="productAddButton">Add to my books</button>
+          <button
+            onClick={addBook}
+            className="productAddButton"
+          >
+            Add to my books
+          </button>
         </div>
       </div>
     </div>

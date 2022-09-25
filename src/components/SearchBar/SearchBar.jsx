@@ -17,6 +17,7 @@ const SearchBar = ({ isMini = false, urlValue = '', backendUrl }) => {
 
   const nav = useNavigate();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedSearch = useCallback(
     debounce((e) => getTitlesFromDb(e.target.value), 500),
     []

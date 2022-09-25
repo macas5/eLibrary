@@ -3,15 +3,18 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const myBooksDisplay = (bookList, user) => {
-  
   const handleBookRemoval = async (bookId) => {
-    const booksOwnedNew = bookList.filter(function( book ) {
+    const booksOwnedNew = bookList.filter(function (book) {
       return book._id !== bookId;
     });
     bookList = booksOwnedNew;
     const bookIdArray = booksOwnedNew.map((book) => book._id);
     try {
-      await axios.put(`http://localhost:3001/user/update/${user._id}`, { booksOwned: bookIdArray });
+      await axios.put(
+        `http://localhost:3001/user/update/${user._id}`,
+        { booksOwned: bookIdArray },
+        { withCredentials: true }
+      );
     } catch (error) {
       console.log(error);
     }
@@ -22,8 +25,12 @@ const myBooksDisplay = (bookList, user) => {
       <List key="bookList">
         {bookList.map((book, index) => {
           return (
-              <ListItem key={index + 'item'}>
-                <Link className="link" to={`/book/${book._id}`} key={index} >
+            <ListItem key={index + 'item'}>
+              <Link
+                className="link"
+                to={`/book/${book._id}`}
+                key={index}
+              >
                 <div className="book">
                   <div className="bookImage">
                     <img
@@ -53,9 +60,14 @@ const myBooksDisplay = (bookList, user) => {
                     </div>
                   </div>
                 </div>
-                </Link>
-                <button className="removeBookButton" onClick={ () => handleBookRemoval(book._id) }>Remove</button>
-              </ListItem>    
+              </Link>
+              <button
+                className="removeBookButton"
+                onClick={() => handleBookRemoval(book._id)}
+              >
+                Remove
+              </button>
+            </ListItem>
           );
         })}
       </List>
