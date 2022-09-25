@@ -8,6 +8,8 @@ import Settings from './pages/Settings/Settings';
 import Overview from './pages/Overview/Overview';
 import { useParams } from 'react-router-dom';
 import Messages from './pages/Messages/Messages';
+import SendMessage from './pages/SendMessage/SendMessage';
+import ManageBooks from './pages/ManageBooks/ManageBooks';
 
 const Account = ({
   navbarLinks,
@@ -19,49 +21,71 @@ const Account = ({
 }) => {
   const { route } = useParams();
   const routes = {
-    books: (
+    books: user && (
       <Books
         user={user}
         books={books}
       />
     ),
-    settings: (
+    settings: user && (
       <Settings
         user={user}
         backendUrl={backendUrl}
         setUserState={setUserState}
       />
     ),
-    messages: <Messages user={user} />,
+    messages: user && (
+      <Messages
+        setUserState={setUserState}
+        backendUrl={backendUrl}
+        user={user}
+      />
+    ),
+    message: user && user.isAdmin && (
+      <SendMessage
+        user={user}
+        backendUrl={backendUrl}
+      />
+    ),
+    manage: user && user.isAdmin && (
+      <ManageBooks
+        user={user}
+        books={books}
+        backendUrl={backendUrl}
+      />
+    ),
   };
 
   const routeSelector = () => {
-    return route && Object.keys(routes).includes(route) ? (
-      routes[route]
-    ) : (
-      <Overview
-        user={user}
-        books={books}
-      />
-    );
+    return user && route && Object.keys(routes).includes(route)
+      ? routes[route]
+      : user && (
+          <Overview
+            user={user}
+            books={books}
+          />
+        );
   };
-
   return (
     <div className="accountPage">
-      <TopBar
-        navbarLinks={navbarLinks}
-        accountLinks={accountLinks}
-        user={user}
-      />
-      <SearchBar
-        isMini={true}
-        backendUrl={backendUrl}
-      />
-      <Container>
-        <AccountNav />
-        {routeSelector()}
-      </Container>
-      <Footer />
+      {user && (
+        <>
+          <TopBar
+            navbarLinks={navbarLinks}
+            accountLinks={accountLinks}
+            user={user}
+          />
+          <SearchBar
+            isMini={true}
+            backendUrl={backendUrl}
+          />
+          <Container>
+            <AccountNav isAdmin={user.isAdmin} />
+            {routeSelector()}
+          </Container>
+          <Footer />
+        </>
+      )}
     </div>
   );
 };

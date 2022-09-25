@@ -10,7 +10,7 @@ const showBookSearchResults = (
 ) => {
   const handlePageChange = (e) => {
     setPage(e.target.innerText - 1);
-    window.scrollTo(0, 315);
+    window.scrollTo({ top: 315 });
   };
 
   return (

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './AccountNav.css';
 
-const AccountNav = () => {
+const AccountNav = ({ isAdmin }) => {
   return (
     <div className="accountNav">
       <ul>
@@ -18,6 +18,16 @@ const AccountNav = () => {
         <Link to="/account/settings">
           <li>Settings</li>
         </Link>
+        {isAdmin && (
+          <>
+            <Link to="/account/message">
+              <li>Send Message</li>
+            </Link>
+            <Link to="/account/manage">
+              <li>Manage Books</li>
+            </Link>
+          </>
+        )}
       </ul>
     </div>
   );

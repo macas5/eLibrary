@@ -19,10 +19,26 @@
 .messageDetails {
   list-style: none;
   display: flex;
-  justify-content: space-between;
   width: 100%;
+}
+
+.messageDetails-from {
+  width: 35%;
+}
+
+.messageDetails-date {
+  margin-left: auto
 }
 
 .messageDetails li {
   margin-right: 20px;
+}
+
+.deleteIcon {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.deleteIcon>span {
+  cursor: pointer;
 }
