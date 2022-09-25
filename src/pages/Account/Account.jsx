@@ -47,7 +47,13 @@ const Account = ({
         backendUrl={backendUrl}
       />
     ),
-    manage: user && user.isAdmin && <ManageBooks />,
+    manage: user && user.isAdmin && (
+      <ManageBooks
+        user={user}
+        books={books}
+        backendUrl={backendUrl}
+      />
+    ),
   };
 
   const routeSelector = () => {
