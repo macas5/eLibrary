@@ -2,7 +2,7 @@ import { useState } from 'react';
 import showBookSearchResults from '../../../../helperComponents/bookSearch';
 import './AccountBooks.css';
 
-const AccountBooks = ({ user, books }) => {
+const AccountBooks = ({ user, books, bookLimit = 0 }) => {
   const [bookList, setbookList] = useState(books);
 
   useState(() => {
@@ -17,7 +17,7 @@ const AccountBooks = ({ user, books }) => {
   return (
     <>
       <h3>My Books</h3>
-      {showBookSearchResults(bookList, 0, 0, 0, 5)}
+      {showBookSearchResults(bookList, null, null, null, bookLimit)}
     </>
   );
 };
