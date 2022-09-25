@@ -10,7 +10,8 @@ const AccountBooks = ({ user, books, setUserState, bookLimit = 0 }) => {
         myBooksDisplay(
           books.filter((book) => user.booksOwned.includes(book._id)),
           user,
-          setUserState
+          setUserState,
+          bookLimit
         )}
     </>
   );

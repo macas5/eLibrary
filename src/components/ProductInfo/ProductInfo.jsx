@@ -3,10 +3,13 @@ import axios from 'axios';
 import { useState } from 'react';
 
 const ProductInfo = ({ book, user }) => {
-  const [style, setStyle] = useState("");
-  
+  const [style, setStyle] = useState('');
+
   const addBook = async () => {
     if (user) {
+      if (user.booksOwned.includes(book._id)) {
+        return;
+      }
       var booksOwnedNew = user.booksOwned;
       booksOwnedNew.push(book._id);
       try {
@@ -15,7 +18,7 @@ const ProductInfo = ({ book, user }) => {
           { booksOwned: booksOwnedNew },
           { withCredentials: true }
         );
-        setStyle("buttonDisabled");
+        setStyle('buttonDisabled');
       } catch (error) {
         console.log(error);
       }
@@ -75,13 +78,13 @@ const ProductInfo = ({ book, user }) => {
               onClick={addBook}
               className={
                 !user || user.booksOwned.includes(book._id)
-                ? 'productAddButton buttonDisabled'
-                : 'productAddButton '+ { style }
+                  ? 'productAddButton buttonDisabled'
+                  : 'productAddButton ' + { style }
               }
             >
-              {!user 
-              ? 'You aren\'t logged in'
-              : user.booksOwned.includes(book._id)
+              {!user
+                ? "You aren't logged in"
+                : user.booksOwned.includes(book._id)
                 ? 'You already own this book'
                 : 'Add to my books'}
             </button>
