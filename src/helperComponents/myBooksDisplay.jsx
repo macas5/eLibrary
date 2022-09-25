@@ -2,7 +2,7 @@ import { Divider, List, ListItem, Pagination } from '@mui/material';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const myBooksDisplay = (bookList, user) => {
+const myBooksDisplay = (bookList, user, setUserState) => {
   const handleBookRemoval = async (bookId) => {
     const booksOwnedNew = bookList.filter(function (book) {
       return book._id !== bookId;
@@ -10,11 +10,13 @@ const myBooksDisplay = (bookList, user) => {
     bookList = booksOwnedNew;
     const bookIdArray = booksOwnedNew.map((book) => book._id);
     try {
-      await axios.put(
+      const { data } = await axios.put(
         `http://localhost:3001/user/update/${user._id}`,
         { booksOwned: bookIdArray },
         { withCredentials: true }
       );
+      console.log(data);
+      setUserState(data);
     } catch (error) {
       console.log(error);
     }

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import myBooksDisplay from '../../../../helperComponents/myBooksDisplay';
 import './AccountBooks.css';
 
-const AccountBooks = ({ user, books }) => {
+const AccountBooks = ({ user, books, setUserState }) => {
   const [bookList, setbookList] = useState(books);
 
   useState(() => {
@@ -17,7 +17,7 @@ const AccountBooks = ({ user, books }) => {
   return (
     <>
       <h3>My Books</h3>
-      {myBooksDisplay(bookList, user)}
+      {myBooksDisplay(bookList, user, setUserState)}
     </>
   );
 };

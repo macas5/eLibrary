@@ -2,7 +2,7 @@ import AccountBooks from '../../components/AccountBooks/AccountBooks';
 import AccountInfo from '../../components/AccountInfo/AccountInfo';
 import './Overview.css';
 
-const Overview = ({ user, books }) => {
+const Overview = ({ user, books, setUserState }) => {
   return (
     <div className="overview">
       <AccountInfo user={user} />
@@ -10,6 +10,7 @@ const Overview = ({ user, books }) => {
         <AccountBooks
           user={user}
           books={books}
+          setUserState={setUserState}
         />
       </div>
     </div>

@@ -23,6 +23,7 @@ const Account = ({
       <Books
         user={user}
         books={books}
+        setUserState={setUserState}
       />
     ),
     settings: (
@@ -42,6 +43,7 @@ const Account = ({
       <Overview
         user={user}
         books={books}
+        setUserState={setUserState}
       />
     );
   };
