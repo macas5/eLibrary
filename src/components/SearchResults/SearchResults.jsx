@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 
 import './SearchResults.css';
 import showBookSearchResults from '../../helperComponents/bookSearch';
-import axios from 'axios';
 
 const SearchResults = ({
   searchValue,
@@ -16,6 +15,7 @@ const SearchResults = ({
   backendUrl,
 }) => {
   const [bookList, setbookList] = useState(books);
+  const [paginatedList, setPaginatedList] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [listPage, setListPage] = useState(0);
   const [searchFilters, setSearchFilters] = useState({
@@ -53,14 +53,6 @@ const SearchResults = ({
   };
 
   useEffect(() => {
-    (async () => {
-      const { data } = await axios.get(`${backendUrl}/book/get/${listPage}`);
-      setPageCount(data.pageCount);
-      setbookList(data.paginatedBooks);
-    })();
-  }, [backendUrl, listPage]);
-
-  useEffect(() => {
     setSearchFilters((prev) => ({
       ...prev,
       addressValue: searchValue ? searchValue : '',
@@ -69,34 +61,41 @@ const SearchResults = ({
   }, [isOnlineReadable, searchValue]);
 
   useEffect(() => {
-    books &&
-      setbookList(
-        books.filter((book) => {
-          return (
-            (book.title
+    if (books) {
+      const filteredBooks = books.filter((book) => {
+        return (
+          (book.title
+            .toLowerCase()
+            .includes(searchFilters.addressValue.toLowerCase()) ||
+            book.author
               .toLowerCase()
               .includes(searchFilters.addressValue.toLowerCase()) ||
-              book.author
-                .toLowerCase()
-                .includes(searchFilters.addressValue.toLowerCase()) ||
-              !searchFilters.addressValue.length) &&
-            (searchFilters.language.indexOf(book.language) !== -1 ||
-              !searchFilters.language.length) &&
-            (searchFilters.form.indexOf(book.form) !== -1 ||
-              !searchFilters.form.length) &&
-            (searchFilters.isReadableOnline.indexOf(book.isReadableOnline) !==
-              -1 ||
-              !searchFilters.isReadableOnline.length) &&
-            (searchFilters.isReleased.indexOf(book.isReleased) !== -1 ||
-              !searchFilters.isReleased.length)
-          );
-        })
-      );
+            !searchFilters.addressValue.length) &&
+          (searchFilters.language.indexOf(book.language) !== -1 ||
+            !searchFilters.language.length) &&
+          (searchFilters.form.indexOf(book.form) !== -1 ||
+            !searchFilters.form.length) &&
+          (searchFilters.isReadableOnline.indexOf(book.isReadableOnline) !==
+            -1 ||
+            !searchFilters.isReadableOnline.length) &&
+          (searchFilters.isReleased.indexOf(book.isReleased) !== -1 ||
+            !searchFilters.isReleased.length)
+        );
+      });
+      setListPage(0);
+      setPageCount(Math.ceil(filteredBooks.length / 20));
+      setbookList(filteredBooks);
+    }
   }, [books, searchFilters]);
+
+  useEffect(() => {
+    bookList &&
+      setPaginatedList(bookList.slice(listPage * 20, (listPage + 1) * 20));
+  }, [bookList, listPage]);
 
   return (
     <Container>
-      {bookList && (
+      {books && (
         <div className="searchResults">
           <h1>Search</h1>
           <p>Number of results found: {bookList.length}</p>
@@ -199,7 +198,12 @@ const SearchResults = ({
               </List>
             </div>
             <div className="results">
-              {showBookSearchResults(bookList, pageCount, setPage)}
+              {showBookSearchResults(
+                paginatedList,
+                pageCount,
+                setPage,
+                listPage
+              )}
             </div>
           </div>
         </div>
