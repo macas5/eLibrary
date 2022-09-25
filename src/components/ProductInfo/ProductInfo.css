@@ -77,3 +77,8 @@
     border: none;
     cursor: pointer;
 }
+
+.buttonDisabled {
+    background-color: #3953a077;
+    cursor: not-allowed;
+}
