@@ -8,6 +8,7 @@ import Settings from './pages/Settings/Settings';
 import Overview from './pages/Overview/Overview';
 import { useParams } from 'react-router-dom';
 import Messages from './pages/Messages/Messages';
+import Admin from './pages/Admin/Admin';
 
 const Account = ({
   navbarLinks,
@@ -33,6 +34,7 @@ const Account = ({
       />
     ),
     messages: <Messages user={user} />,
+    admin: user && user.isAdmin && <Admin />,
   };
 
   const routeSelector = () => {
@@ -45,23 +47,26 @@ const Account = ({
       />
     );
   };
-
   return (
     <div className="accountPage">
-      <TopBar
-        navbarLinks={navbarLinks}
-        accountLinks={accountLinks}
-        user={user}
-      />
-      <SearchBar
-        isMini={true}
-        backendUrl={backendUrl}
-      />
-      <Container>
-        <AccountNav />
-        {routeSelector()}
-      </Container>
-      <Footer />
+      {user && (
+        <>
+          <TopBar
+            navbarLinks={navbarLinks}
+            accountLinks={accountLinks}
+            user={user}
+          />
+          <SearchBar
+            isMini={true}
+            backendUrl={backendUrl}
+          />
+          <Container>
+            <AccountNav isAdmin={user.isAdmin} />
+            {routeSelector()}
+          </Container>
+          <Footer />
+        </>
+      )}
     </div>
   );
 };
