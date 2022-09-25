@@ -19,8 +19,8 @@ const AccountNav = ({ isAdmin }) => {
           <li>Settings</li>
         </Link>
         {isAdmin && (
-          <Link to="/account/admin">
-            <li>Admin menu</li>
+          <Link to="/account/message">
+            <li>Send message</li>
           </Link>
         )}
       </ul>

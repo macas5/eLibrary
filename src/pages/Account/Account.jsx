@@ -8,7 +8,7 @@ import Settings from './pages/Settings/Settings';
 import Overview from './pages/Overview/Overview';
 import { useParams } from 'react-router-dom';
 import Messages from './pages/Messages/Messages';
-import Admin from './pages/Admin/Admin';
+import SendMessage from './pages/SendMessage/SendMessage';
 
 const Account = ({
   navbarLinks,
@@ -34,7 +34,12 @@ const Account = ({
       />
     ),
     messages: <Messages user={user} />,
-    admin: user && user.isAdmin && <Admin />,
+    message: user && user.isAdmin && (
+      <SendMessage
+        user={user}
+        backendUrl={backendUrl}
+      />
+    ),
   };
 
   const routeSelector = () => {

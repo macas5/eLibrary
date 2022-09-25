@@ -19,8 +19,15 @@
 .messageDetails {
   list-style: none;
   display: flex;
-  justify-content: space-between;
   width: 100%;
+}
+
+.messageDetails-from {
+  width: 35%;
+}
+
+.messageDetails-date {
+  margin-left: auto
 }
 
 .messageDetails li {
