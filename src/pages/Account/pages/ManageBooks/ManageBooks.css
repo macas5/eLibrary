@@ -1,0 +1,55 @@
+.manageBooks {
+  display: flex;
+}
+
+.manageBooksWrapper {
+  width: 70%
+}
+
+.manageBooksWrapper .success {
+  color: green;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.imagePreview {
+  width: 25%;
+}
+
+.imagePreview img {
+  width: 100%;
+}
+
+.bookDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookSelector {
+  width: 90%;
+}
+
+.bookDetails>label {
+  margin-top: 10px
+}
+
+
+
+.bookDetails>input,
+.bookDetails>label,
+.bookDetails>select {
+  width: 90%;
+}
+
+.bookDetails>label>input {
+  margin-left: 10px;
+}
+
+.submitButtons {
+  display: flex;
+  justify-content: center;
+}
+
+.submitButtons button {
+  margin: 20px 5px;
+}

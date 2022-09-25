@@ -45,7 +45,7 @@
 }
 
 .authFormWrapper input,
-input:focus {
+.authFormWrapper input:focus {
     background: transparent;
     border: 1px solid #BABABA;
     outline: none;

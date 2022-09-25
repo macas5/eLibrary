@@ -10,3 +10,8 @@
   width: 65%;
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
+
+.accountBooks .buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
