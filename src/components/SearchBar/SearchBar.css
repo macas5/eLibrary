@@ -39,9 +39,14 @@
   background-color: white;
 }
 
+.plainLink {
+  color: white;
+  text-decoration: none;
+}
+
 #searchButton {
   margin-left: 20px;
-  height: 50px;
+  height: 100%;
   padding-left: 30px;
   padding-right: 30px;
 }

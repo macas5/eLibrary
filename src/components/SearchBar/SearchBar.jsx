@@ -128,7 +128,7 @@ const SearchBar = ({ isMini = false, urlValue = '', backendUrl }) => {
             />
           </div>
 
-          <Link to={`/search/${searchValues}`}>
+          <Link className="plainLink" to={`/search/${searchValues}`}>
             <Button
               variant="contained"
               color="success"
