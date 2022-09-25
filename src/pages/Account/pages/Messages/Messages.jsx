@@ -1,6 +1,7 @@
 import { DeleteOutline, ExpandMore } from '@mui/icons-material';
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
 import axios from 'axios';
+import { useEffect } from 'react';
 import AccountInfo from '../../components/AccountInfo/AccountInfo';
 import './Messages.css';
 
@@ -21,10 +22,20 @@ const Messages = ({ user, setUserState, backendUrl }) => {
     }
   };
 
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get(`${backendUrl}/user/getown`, {
+        withCredentials: true,
+      });
+      setUserState(data);
+    })();
+  }, [backendUrl, setUserState]);
+
   return (
     <div className="messages">
       {user && (
         <>
+          {console.log(user)}
           <AccountInfo user={user} />
           <div className="messagesWrapper">
             <h2>Your messages:</h2>
