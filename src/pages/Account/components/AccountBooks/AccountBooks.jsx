@@ -17,7 +17,7 @@ const AccountBooks = ({ user, books }) => {
   return (
     <>
       <h3>My Books</h3>
-      {showBookSearchResults(bookList)}
+      {showBookSearchResults(bookList, 0, 0, 0, 5)}
     </>
   );
 };
