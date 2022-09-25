@@ -1,7 +1,7 @@
 import { Divider, List, ListItem, Pagination } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const showBookSearchResults = (bookList, pageCount, setPage) => {
+const showBookSearchResults = (bookList, pageCount, setPage, currentPage) => {
   const handlePageChange = (e) => {
     setPage(e.target.innerText - 1);
     window.scrollTo(0, 315);
@@ -59,6 +59,7 @@ const showBookSearchResults = (bookList, pageCount, setPage) => {
               hidePrevButton
               onClick={handlePageChange}
               count={pageCount}
+              page={currentPage + 1}
             />
           )}
         </div>
