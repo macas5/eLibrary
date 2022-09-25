@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import showBookSearchResults from '../../../../helperComponents/bookSearch';
+import myBooksDisplay from '../../../../helperComponents/myBooksDisplay';
 import './AccountBooks.css';
 
 const AccountBooks = ({ user, books }) => {
@@ -17,7 +17,7 @@ const AccountBooks = ({ user, books }) => {
   return (
     <>
       <h3>My Books</h3>
-      {showBookSearchResults(bookList)}
+      {myBooksDisplay(bookList, user)}
     </>
   );
 };
