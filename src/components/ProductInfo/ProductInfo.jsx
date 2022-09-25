@@ -19,7 +19,6 @@ const ProductInfo = ({ book, user }) => {
   };
 
   return (
-    user &&
     book && (
       <div className="productPageWrapper">
         <div className="productInfoContainer">
@@ -71,12 +70,14 @@ const ProductInfo = ({ book, user }) => {
             <button
               onClick={addBook}
               className={
-                user.booksOwned.includes(book._id)
-                  ? 'productAddButton buttonDisabled'
-                  : 'productAddButton'
+                !user || user.booksOwned.includes(book._id)
+                ? 'productAddButton buttonDisabled'
+                : 'productAddButton'
               }
             >
-              {user.booksOwned.includes(book._id)
+              {!user 
+              ? 'You aren\'t logged in'
+              : user.booksOwned.includes(book._id)
                 ? 'You already own this book'
                 : 'Add to my books'}
             </button>
