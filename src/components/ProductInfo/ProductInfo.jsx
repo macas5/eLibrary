@@ -1,7 +1,10 @@
 import './ProductInfo.css';
 import axios from 'axios';
+import { useState } from 'react';
 
 const ProductInfo = ({ book, user }) => {
+  const [style, setStyle] = useState("");
+  
   const addBook = async () => {
     if (user) {
       var booksOwnedNew = user.booksOwned;
@@ -12,6 +15,7 @@ const ProductInfo = ({ book, user }) => {
           { booksOwned: booksOwnedNew },
           { withCredentials: true }
         );
+        setStyle("buttonDisabled");
       } catch (error) {
         console.log(error);
       }
@@ -72,7 +76,7 @@ const ProductInfo = ({ book, user }) => {
               className={
                 !user || user.booksOwned.includes(book._id)
                 ? 'productAddButton buttonDisabled'
-                : 'productAddButton'
+                : 'productAddButton '+ { style }
               }
             >
               {!user 
