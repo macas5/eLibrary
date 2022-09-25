@@ -1,5 +1,6 @@
 .footerWrapper {
-    width: 100%;
+    max-width: 1200px;
+    margin: auto;
     height: fit-content;
     display: flex;
     background: #fff;
@@ -28,10 +29,14 @@
     padding-bottom: 19px;
     margin-bottom: 19px;
     border-bottom: .0625rem solid #e3e3e3;
+    text-decoration: none;
+    color: #000;
 }
 
-.footerContact {
-    margin: 19px 0px;
+.footerLogoImage {
+    max-height: 80px;
+    width: 100%;
+    object-fit: contain;
 }
 
 @media screen and (max-width: 500px) {
