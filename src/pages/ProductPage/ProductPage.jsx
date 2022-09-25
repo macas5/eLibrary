@@ -21,7 +21,7 @@ const ProductPage = ({ navbarLinks, accountLinks, books, user }) => {
       />
       {book && (
         <>
-          <ProductInfo book={book} />
+          <ProductInfo book={book} user={user} />
           <Footer />
         </>
       )}

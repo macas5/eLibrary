@@ -25,6 +25,7 @@ const Account = ({
       <Books
         user={user}
         books={books}
+        setUserState={setUserState}
       />
     ),
     settings: user && (
@@ -51,6 +52,7 @@ const Account = ({
       <ManageBooks
         user={user}
         books={books}
+        setUserState={setUserState}
         backendUrl={backendUrl}
       />
     ),
@@ -63,6 +65,7 @@ const Account = ({
           <Overview
             user={user}
             books={books}
+            setUserState={setUserState}
           />
         );
   };

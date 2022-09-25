@@ -30,8 +30,6 @@ const SendMessage = ({ user, backendUrl }) => {
     const recipientUser = users.find((user) => user._id === recipient);
     const newMessages = recipientUser.messages;
     newMessages.unshift(message);
-    console.log(newMessages);
-    console.log(recipient);
     try {
       axios.put(
         `${backendUrl}/user/update/${recipient}`,

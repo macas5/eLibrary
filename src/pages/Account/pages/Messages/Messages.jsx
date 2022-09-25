@@ -35,7 +35,6 @@ const Messages = ({ user, setUserState, backendUrl }) => {
     <div className="messages">
       {user && (
         <>
-          {console.log(user)}
           <AccountInfo user={user} />
           <div className="messagesWrapper">
             <h2>Your messages:</h2>

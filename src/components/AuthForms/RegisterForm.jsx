@@ -27,7 +27,6 @@ const RegisterForm = ({ backendUrl, setUserState }) => {
         await axios.post(`${backendUrl}/user/register`, { registerData });
         nav('/login');
       } catch (error) {
-        console.log(error.code);
         if (error.code === 'ERR_BAD_REQUEST')
           setError('Username is already used');
         console.log(error);
