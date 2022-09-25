@@ -3,7 +3,6 @@ import { Avatar } from '@mui/material';
 import './AccountInfo.css';
 
 const AccountInfo = ({ user }) => {
-  console.log(user);
   return (
     <div className="accountInfo">
       {user && (

@@ -15,7 +15,6 @@ const myBooksDisplay = (bookList, user, setUserState) => {
         { booksOwned: bookIdArray },
         { withCredentials: true }
       );
-      console.log(data);
       setUserState(data);
     } catch (error) {
       console.log(error);

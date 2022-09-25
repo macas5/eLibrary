@@ -6,7 +6,6 @@ const ProductInfo = ({ book, user }) => {
     if (user) {
       var booksOwnedNew = user.booksOwned;
       booksOwnedNew.push(book._id);
-      console.log(booksOwnedNew);
       try {
         await axios.put(
           `http://localhost:3001/user/update/${user._id}`,

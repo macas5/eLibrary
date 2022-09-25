@@ -1,23 +1,17 @@
-import { useState } from 'react';
 import myBooksDisplay from '../../../../helperComponents/myBooksDisplay';
 import './AccountBooks.css';
 
 const AccountBooks = ({ user, books, setUserState }) => {
-  const [bookList, setbookList] = useState(books);
-
-  useState(() => {
-    if (books && user) {
-      const filteredBooks = books.filter((book) =>
-        user.booksOwned.includes(book._id)
-      );
-      setbookList(filteredBooks);
-    }
-  }, []);
-
   return (
     <>
       <h3>My Books</h3>
-      {myBooksDisplay(bookList, user, setUserState)}
+      {books &&
+        user &&
+        myBooksDisplay(
+          books.filter((book) => user.booksOwned.includes(book._id)),
+          user,
+          setUserState
+        )}
     </>
   );
 };
