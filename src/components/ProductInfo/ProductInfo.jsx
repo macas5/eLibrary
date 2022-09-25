@@ -5,10 +5,10 @@ const ProductInfo = ({ book, user }) => {
   
   const addBook = async () => {
     if(user) {
-      const booksOwnedNew = [...user.booksOwned, book._id];
+      var booksOwnedNew = user.booksOwned;
+      booksOwnedNew.push(book._id);
+      console.log(booksOwnedNew)   
       try {
-        const newData = { ...user, booksOwned: booksOwnedNew };
-        console.log(newData);
         await axios.put(`http://localhost:3001/user/update/${user._id}`, { booksOwned: booksOwnedNew });
       } catch (error) {
         console.log(error);
