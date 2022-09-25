@@ -17,7 +17,8 @@
     margin-bottom: 15px;
 }
 
-.footerLinksWrapper, .footerContactsWrapper {
+.footerLinksWrapper,
+.footerContactsWrapper {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -31,4 +32,10 @@
 
 .footerContact {
     margin: 19px 0px;
+}
+
+@media screen and (max-width: 500px) {
+    .footerWrapper {
+        flex-direction: column;
+    }
 }
