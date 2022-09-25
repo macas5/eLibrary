@@ -33,7 +33,13 @@ const Account = ({
         setUserState={setUserState}
       />
     ),
-    messages: <Messages user={user} />,
+    messages: (
+      <Messages
+        setUserState={setUserState}
+        backendUrl={backendUrl}
+        user={user}
+      />
+    ),
     message: user && user.isAdmin && (
       <SendMessage
         user={user}

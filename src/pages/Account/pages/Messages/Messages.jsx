@@ -1,9 +1,26 @@
-import { ExpandMore } from '@mui/icons-material';
+import { DeleteOutline, ExpandMore } from '@mui/icons-material';
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
+import axios from 'axios';
 import AccountInfo from '../../components/AccountInfo/AccountInfo';
 import './Messages.css';
 
-const Messages = ({ user }) => {
+const Messages = ({ user, setUserState, backendUrl }) => {
+  const deleteMessage = async (deleteMessage) => {
+    const filteredMessages = user.messages.filter(
+      (message) => message._id !== deleteMessage._id
+    );
+    try {
+      const { data } = await axios.put(
+        `${backendUrl}/user/update/${user._id}`,
+        { messages: filteredMessages },
+        { withCredentials: true }
+      );
+      setUserState(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="messages">
       {user && (
@@ -25,7 +42,14 @@ const Messages = ({ user }) => {
                       <li className="messageDetails-date">{message.date}</li>
                     </ul>
                   </AccordionSummary>
-                  <AccordionDetails>{message.content}</AccordionDetails>
+                  <AccordionDetails>
+                    {message.content}
+                    <div className="deleteIcon">
+                      <span onClick={() => deleteMessage(message)}>
+                        <DeleteOutline />
+                      </span>
+                    </div>
+                  </AccordionDetails>
                 </Accordion>
               ))}
             </div>

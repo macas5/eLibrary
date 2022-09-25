@@ -33,3 +33,12 @@
 .messageDetails li {
   margin-right: 20px;
 }
+
+.deleteIcon {
+  display: flex;
+  justify-content: end;
+}
+
+.deleteIcon>span {
+  cursor: pointer;
+}
