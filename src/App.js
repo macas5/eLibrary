@@ -14,7 +14,6 @@ import Logout from './components/Logout/Logout';
 
 const navbarLinks = [
   { name: 'eBooks', path: '/search/?readonline=true' },
-  { name: 'Most popular', path: '/' },
   { name: 'Login', path: '/login' },
   { name: 'Register', path: '/register' },
 ];
@@ -160,6 +159,7 @@ function App() {
                   accountLinks={accountLinks}
                   books={books}
                   user={user}
+                  backendUrl={backendUrl}
                 />
               }
             />

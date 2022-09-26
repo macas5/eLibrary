@@ -1,5 +1,6 @@
 .manageBooks {
   display: flex;
+  flex-grow: 1;
 }
 
 .manageBooksWrapper {
@@ -25,20 +26,21 @@
   flex-direction: column;
 }
 
-.bookSelector {
+.padding-15 {
+  margin-bottom: 15px;
+}
+
+.bookSelector, .bookDetails {
   width: 90%;
 }
 
-.bookDetails>label {
-  margin-top: 10px
-}
-
-
-
-.bookDetails>input,
-.bookDetails>label,
-.bookDetails>select {
-  width: 90%;
+.bookDetails>select, .bookDetails>select:focus {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+  background: transparent;
+  margin-top: 10px;
+  padding-bottom: 5px;
 }
 
 .bookDetails>label>input {

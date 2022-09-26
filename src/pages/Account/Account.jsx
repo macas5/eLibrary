@@ -10,6 +10,7 @@ import { useParams } from 'react-router-dom';
 import Messages from './pages/Messages/Messages';
 import SendMessage from './pages/SendMessage/SendMessage';
 import ManageBooks from './pages/ManageBooks/ManageBooks';
+import "./Account.css";
 
 const Account = ({
   navbarLinks,
@@ -82,10 +83,12 @@ const Account = ({
             isMini={true}
             backendUrl={backendUrl}
           />
-          <Container>
+          <div className="accountPageWrapper">
+            <div className="accountPageData">
             <AccountNav isAdmin={user.isAdmin} />
             {routeSelector()}
-          </Container>
+            </div>
+          </div>
           <Footer />
         </>
       )}

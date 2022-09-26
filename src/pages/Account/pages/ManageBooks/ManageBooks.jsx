@@ -1,4 +1,5 @@
 import { Autocomplete, Button, TextField } from '@mui/material';
+import Checkbox from '@mui/material/Checkbox';
 import axios from 'axios';
 import { useState } from 'react';
 import './ManageBooks.css';
@@ -77,35 +78,40 @@ const ManageBooks = ({ user, books, backendUrl }) => {
           />
         </div>
         <div className="bookDetails">
-          <label htmlFor="title">title:</label>
-          <input
+          <div className="padding-15"></div>
+          <TextField
+            label="Title"
             value={book.title}
             onChange={handleInputChange}
             name="title"
             type="text"
-          ></input>
-          <label htmlFor="author">author:</label>
-          <input
+          ></TextField>
+          <div className="padding-15"></div>
+          <TextField
+            label="Author"
             value={book.author}
             onChange={handleInputChange}
             name="author"
             type="text"
-          ></input>
-          <label htmlFor="publicationDate">publication date:</label>
-          <input
+          ></TextField>
+          <div className="padding-15"></div>
+          <TextField
+            label="Publication date"
             value={book.publicationDate}
             onChange={handleInputChange}
             name="publicationDate"
             type="text"
-          ></input>
-          <label htmlFor="imageLink">image link:</label>
-          <input
+          ></TextField>
+          <div className="padding-15"></div>
+          <TextField
+            label="Image link"
             value={book.imageLink}
             onChange={handleInputChange}
             name="imageLink"
             type="text"
-          ></input>
-          <label htmlFor="form">form:</label>
+          ></TextField>
+          <div className="padding-15"></div>
+          <label htmlFor="form">Form:</label>          
           <select
             value={book.form}
             onChange={handleInputChange}
@@ -114,7 +120,8 @@ const ManageBooks = ({ user, books, backendUrl }) => {
             <option value="Printed">Printed</option>
             <option value="Electronic">Electronic</option>
           </select>
-          <label htmlFor="language">language:</label>
+          <div className="padding-15"></div>
+          <label htmlFor="language">Language:</label>
           <select
             value={book.language}
             onChange={handleInputChange}
@@ -125,24 +132,25 @@ const ManageBooks = ({ user, books, backendUrl }) => {
             <option value="Latvian">Latvian</option>
             <option value="Lithuanian">Lithuanian</option>
           </select>
+          <div className="padding-15"></div>
           <label htmlFor="isReleased">
             Released?:{' '}
-            <input
+            <Checkbox
               checked={book.isReleased === 'true'}
               onChange={handleInputChange}
               name="isReleased"
               type="checkbox"
-            ></input>
+            ></Checkbox>
           </label>
 
           <label htmlFor="isReadableOnline">
             Readable Online?:{' '}
-            <input
-              checked={book.isReadableOnline === 'true'}
-              name="isReadableOnline"
-              onChange={handleInputChange}
-              type="checkbox"
-            ></input>
+              <Checkbox
+                checked={book.isReadableOnline === 'true'}
+                name="isReadableOnline"
+                onChange={handleInputChange}
+                type="checkbox"
+              />
           </label>
         </div>
         <div className="submitButtons">

@@ -12,9 +12,7 @@ const AccountInfo = ({ user }) => {
           </Avatar>
           <div className="userData">
             <p>{`Hi ${user.name}!`}</p>
-            <p>Loaned books: 12</p>
             <p>eBooks owned: {user.booksOwned.length}</p>
-            <p>Books overdue: 2</p>
           </div>
         </>
       )}

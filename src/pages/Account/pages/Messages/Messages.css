@@ -1,7 +1,8 @@
 .messages {
   margin-top: 10px;
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 20px;  
+  flex-grow: 1;
 }
 
 .messagesWrapper {

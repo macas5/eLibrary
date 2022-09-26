@@ -21,12 +21,6 @@ const Footer = () => {
           >
             E-Books
           </Link>
-          <Link
-            to="/"
-            className="footerLink"
-          >
-            Most popular
-          </Link>
         </div>
       </div>
       <div className="footerSection">

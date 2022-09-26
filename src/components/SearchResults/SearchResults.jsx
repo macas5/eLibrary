@@ -1,4 +1,3 @@
-import Container from '@mui/material/Container';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -96,11 +95,13 @@ const SearchResults = ({ searchValue, isOnlineReadable = 'false', books }) => {
   }, [bookList, listPage]);
 
   return (
-    <Container>
+    <div className="searchResultsContainer">
       {books && (
         <div className="searchResults">
-          <h1>Search</h1>
-          <p>Number of results found: {bookList.length}</p>
+          <div className="searchResultsTitle">
+            <h1>Search</h1>
+            <p>Number of results found: {bookList.length}</p>
+          </div>
           <div className="searchResultsWrapper">
             <div className="filters">
               <List dense>
@@ -218,7 +219,7 @@ const SearchResults = ({ searchValue, isOnlineReadable = 'false', books }) => {
           </div>
         </div>
       )}
-    </Container>
+    </div>
   );
 };
 

@@ -63,12 +63,14 @@ const myBooksDisplay = (bookList, user, setUserState, maxEntries = 0) => {
                     </div>
                   </div>
                 </Link>
-                <button
-                  className="removeBookButton"
-                  onClick={() => handleBookRemoval(book._id)}
-                >
-                  Remove
-                </button>
+                <div className="removeBook">
+                  <button
+                    className="removeBookButton"
+                    onClick={() => handleBookRemoval(book._id)}
+                  >
+                    Remove
+                  </button>
+                </div>
               </ListItem>
             )
           );

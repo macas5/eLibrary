@@ -8,7 +8,6 @@ const AccountNav = ({ isAdmin }) => {
         <Link to="/account">
           <li>Account</li>
         </Link>
-        <li>Pending Orders</li>
         <Link to="/account/books">
           <li>My Books</li>
         </Link>
