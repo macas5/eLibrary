@@ -76,7 +76,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  min-height: 100px;
 }
 
 .bookImage {
