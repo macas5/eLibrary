@@ -43,3 +43,11 @@
 .deleteIcon>span {
   cursor: pointer;
 }
+
+@media screen and (max-width: 700px) {
+  .messages {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
