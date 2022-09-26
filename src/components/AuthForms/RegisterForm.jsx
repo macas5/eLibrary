@@ -29,7 +29,7 @@ const RegisterForm = ({ backendUrl, setUserState }) => {
       } catch (error) {
         if (error.code === 'ERR_BAD_REQUEST')
           setError('Username is already used');
-        console.log(error);
+        console.error(error);
       }
     }
   };

@@ -38,7 +38,7 @@ const SendMessage = ({ user, backendUrl }) => {
       );
       setSuccess('Message has been sent successfully');
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -50,7 +50,7 @@ const SendMessage = ({ user, backendUrl }) => {
         });
         setUsers(data);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     })();
   }, [backendUrl]);

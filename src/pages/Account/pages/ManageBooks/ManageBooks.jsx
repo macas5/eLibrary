@@ -58,7 +58,7 @@ const ManageBooks = ({ user, books, backendUrl }) => {
       setSuccess('A book has been deleted!');
       return;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
   return (

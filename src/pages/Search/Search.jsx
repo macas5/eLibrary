@@ -24,7 +24,6 @@ const Search = ({ navbarLinks, accountLinks, books, user, backendUrl }) => {
         searchValue={searchValue}
         isOnlineReadable={readOnline}
         books={books}
-        backendUrl={backendUrl}
       />
       <Footer />
     </>

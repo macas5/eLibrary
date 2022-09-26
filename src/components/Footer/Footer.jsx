@@ -1,5 +1,5 @@
-import "./Footer.css";
-import { Link } from "react-router-dom";
+import './Footer.css';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -9,10 +9,16 @@ const Footer = () => {
           <h3>Useful links</h3>
         </div>
         <div className="footerLinksWrapper">
-          <Link to="/" className="footerLink">
+          <Link
+            to="/"
+            className="footerLink"
+          >
             Home
           </Link>
-          <Link to="/search/?readonline=true" className="footerLink">
+          <Link
+            to="/search/?readonline=true"
+            className="footerLink"
+          >
             E-Books
           </Link>
         </div>
@@ -29,8 +35,12 @@ const Footer = () => {
       </div>
       <div className="footerSection">
         <div className="footerSectionTitle">
-          <img className="footerLogoImage" src="https://e-library.smpn10.bekasikota.go.id/uploads/settings/df8f41ef77b716413f7f93fbb7bf8dcd.png"></img>
-        </div>        
+          <img
+            className="footerLogoImage"
+            src="https://e-library.smpn10.bekasikota.go.id/uploads/settings/df8f41ef77b716413f7f93fbb7bf8dcd.png"
+            alt="logo"
+          />
+        </div>
       </div>
     </div>
   );

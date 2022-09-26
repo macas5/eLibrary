@@ -7,12 +7,7 @@ import { useEffect, useState } from 'react';
 import './SearchResults.css';
 import showBookSearchResults from '../../helperComponents/bookSearch';
 
-const SearchResults = ({
-  searchValue,
-  isOnlineReadable = 'false',
-  books,
-  backendUrl,
-}) => {
+const SearchResults = ({ searchValue, isOnlineReadable = 'false', books }) => {
   const [bookList, setbookList] = useState(books);
   const [paginatedList, setPaginatedList] = useState([]);
   const [pageCount, setPageCount] = useState(0);
@@ -52,12 +47,19 @@ const SearchResults = ({
   };
 
   useEffect(() => {
+    isOnlineReadable === 'true' &&
+      setSearchFilters((prev) => ({
+        ...prev,
+        isReadableOnline: ['true'],
+      }));
+  }, [isOnlineReadable]);
+
+  useEffect(() => {
     setSearchFilters((prev) => ({
       ...prev,
       addressValue: searchValue ? searchValue : '',
-      isReadableOnline: isOnlineReadable === 'true' ? [isOnlineReadable] : [],
     }));
-  }, [isOnlineReadable, searchValue]);
+  }, [searchValue]);
 
   useEffect(() => {
     if (books) {
@@ -109,7 +111,7 @@ const SearchResults = ({
                       name="true"
                       id="isReadableOnline"
                       onClick={handleFilterChange}
-                      defaultChecked={isOnlineReadable === 'true'}
+                      checked={searchFilters.isReadableOnline.includes('true')}
                       edge="start"
                     />
                     <ListItemText primary="Read Online" />
@@ -122,6 +124,7 @@ const SearchResults = ({
                       name="Printed"
                       id="form"
                       onClick={handleFilterChange}
+                      checked={searchFilters.form.includes('Printed')}
                       edge="start"
                     />
                     <ListItemText primary="Printed" />
@@ -131,6 +134,7 @@ const SearchResults = ({
                       name="Electronic"
                       id="form"
                       onClick={handleFilterChange}
+                      checked={searchFilters.form.includes('Electronic')}
                       edge="start"
                     />
                     <ListItemText primary="Electronic" />
@@ -143,6 +147,7 @@ const SearchResults = ({
                       name="English"
                       id="language"
                       onClick={handleFilterChange}
+                      checked={searchFilters.language.includes('English')}
                       edge="start"
                     />
                     <ListItemText primary="English" />
@@ -152,6 +157,7 @@ const SearchResults = ({
                       name="French"
                       id="language"
                       onClick={handleFilterChange}
+                      checked={searchFilters.language.includes('French')}
                       edge="start"
                     />
                     <ListItemText primary="French" />
@@ -161,6 +167,7 @@ const SearchResults = ({
                       name="Latvian"
                       id="language"
                       onClick={handleFilterChange}
+                      checked={searchFilters.language.includes('Latvian')}
                       edge="start"
                     />
                     <ListItemText primary="Latvian" />
@@ -170,6 +177,7 @@ const SearchResults = ({
                       name="Lithuanian"
                       id="language"
                       onClick={handleFilterChange}
+                      checked={searchFilters.language.includes('Lithuanian')}
                       edge="start"
                     />
                     <ListItemText primary="Lithuanian" />
@@ -182,6 +190,7 @@ const SearchResults = ({
                       name="true"
                       id="isReleased"
                       onClick={handleFilterChange}
+                      checked={searchFilters.isReleased.includes('true')}
                       edge="start"
                     />
                     <ListItemText primary="Released" />
@@ -191,6 +200,7 @@ const SearchResults = ({
                       name="false"
                       id="isReleased"
                       onClick={handleFilterChange}
+                      checked={searchFilters.isReleased.includes('false')}
                       edge="start"
                     />
                     <ListItemText primary="Not released" />

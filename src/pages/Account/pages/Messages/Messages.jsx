@@ -18,16 +18,20 @@ const Messages = ({ user, setUserState, backendUrl }) => {
       );
       setUserState(data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get(`${backendUrl}/user/getown`, {
-        withCredentials: true,
-      });
-      setUserState(data);
+      try {
+        const { data } = await axios.get(`${backendUrl}/user/getown`, {
+          withCredentials: true,
+        });
+        setUserState(data);
+      } catch (error) {
+        console.error(error);
+      }
     })();
   }, [backendUrl, setUserState]);
 

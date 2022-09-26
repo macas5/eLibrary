@@ -17,7 +17,7 @@ const myBooksDisplay = (bookList, user, setUserState, maxEntries = 0) => {
       );
       setUserState(data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
