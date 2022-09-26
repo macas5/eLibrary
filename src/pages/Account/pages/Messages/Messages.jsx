@@ -18,7 +18,7 @@ const Messages = ({ user, setUserState, backendUrl }) => {
       );
       setUserState(data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

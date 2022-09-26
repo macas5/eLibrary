@@ -74,7 +74,7 @@ const Settings = ({ user, backendUrl, setUserState }) => {
         nav('/');
       } catch (error) {
         if (error.response.status === 405) setError('Invalid current password');
-        console.log(error);
+        console.error(error);
       }
     } else {
       setSuccess('');

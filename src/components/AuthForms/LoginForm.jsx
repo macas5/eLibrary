@@ -31,7 +31,7 @@ const LoginForm = ({ backendUrl, setUserState }) => {
     } catch (error) {
       error.code === 'ERR_BAD_REQUEST' &&
         setError('Invalid username or password');
-      console.log(error);
+      console.error(error);
     }
   };
 

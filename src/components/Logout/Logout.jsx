@@ -6,7 +6,7 @@ const Logout = ({ backendUrl, setUserState }) => {
   try {
     connection(`${backendUrl}/user/logout`, 'POST');
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
   const nav = useNavigate();
 

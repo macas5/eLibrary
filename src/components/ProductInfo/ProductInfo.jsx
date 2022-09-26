@@ -20,7 +20,7 @@ const ProductInfo = ({ book, user }) => {
         );
         setStyle('buttonDisabled');
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
   };
