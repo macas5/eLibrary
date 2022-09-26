@@ -25,10 +25,14 @@ const SearchBar = ({ isMini = false, urlValue = '', backendUrl }) => {
 
   const getTitlesFromDb = async (input) => {
     if (input) {
-      const { data } = await axios.post(`${backendUrl}/book/find`, {
-        searchQuery: input,
-      });
-      setOptions(data);
+      try {
+        const { data } = await axios.post(`${backendUrl}/book/find`, {
+          searchQuery: input,
+        });
+        setOptions(data);
+      } catch (error) {
+        console.error(error);
+      }
     } else {
       setOptions([]);
     }
@@ -42,9 +46,13 @@ const SearchBar = ({ isMini = false, urlValue = '', backendUrl }) => {
     }
 
     (async () => {
-      if (active) {
-        const { data } = await axios.get(`${backendUrl}/book/get`);
-        setOptions(data);
+      try {
+        if (active) {
+          const { data } = await axios.get(`${backendUrl}/book/get`);
+          setOptions(data);
+        }
+      } catch (error) {
+        console.error(error);
       }
     })();
 

@@ -39,9 +39,13 @@ const Settings = ({ user, backendUrl, setUserState }) => {
   const isNameCorrect = (name) => !name || name.split(' ').length > 1;
 
   const sendData = async (data) => {
-    return await axios.put(`${backendUrl}/user/update/${user._id}`, data, {
-      withCredentials: true,
-    });
+    try {
+      return await axios.put(`${backendUrl}/user/update/${user._id}`, data, {
+        withCredentials: true,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleSubmit = async () => {
