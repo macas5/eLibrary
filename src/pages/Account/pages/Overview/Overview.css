@@ -55,3 +55,28 @@
   display: flex;
   justify-content: center;
 }
+
+@media screen and (max-width: 700px) {
+  .overview {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .removeBook {
+    width: 100%;
+    display: flex;
+  }
+  .removeBookButton {
+    float: none;
+    margin: 0 auto;
+    height: 30px;
+    font-size: 12px;
+    padding: 5px 30px;
+  }
+  .accountBooks li {  
+    flex-wrap: wrap; 
+  }
+}

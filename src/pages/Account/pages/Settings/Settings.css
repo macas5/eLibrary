@@ -15,7 +15,7 @@
 .basicInfo>div,
 .passwordField>div {
   margin: 10px;
-  width: 400px;
+  max-width: 400px;
 }
 
 .accountSettingsWrapper h3 {
@@ -34,4 +34,12 @@
 .accountSettingsWrapper .success {
   color: green;
   text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+  .accountSettings {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
