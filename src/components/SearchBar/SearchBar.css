@@ -69,3 +69,10 @@
   height: 150px;
   width: 100%;
 }
+
+@media screen and (max-width: 600px) {
+  .searchFormWrapper {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
