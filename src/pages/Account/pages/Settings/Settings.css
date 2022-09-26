@@ -18,10 +18,6 @@
   width: 400px;
 }
 
-.accountSettingsWrapper {
-  flex-grow: 1;
-}
-
 .accountSettingsWrapper h3 {
   margin-left: 10px;
 }

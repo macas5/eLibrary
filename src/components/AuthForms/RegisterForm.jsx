@@ -45,6 +45,10 @@ const RegisterForm = ({ backendUrl, setUserState }) => {
       : submitData();
   };
 
+  const handleEnter = (e) => {
+    e.keyCode === 13 && handleFormSubmit(e);
+  };
+
   return (
     <div className="authFormWrapper">
       <div className="authFormTitle">Register</div>
@@ -55,6 +59,7 @@ const RegisterForm = ({ backendUrl, setUserState }) => {
             <input
               name="username"
               onChange={handleFormChange}
+              onKeyDown={handleEnter}
               type="text"
             />
           </div>
@@ -63,6 +68,7 @@ const RegisterForm = ({ backendUrl, setUserState }) => {
             <input
               name="name"
               onChange={handleFormChange}
+              onKeyDown={handleEnter}
               type="text"
             />
           </div>
@@ -71,6 +77,7 @@ const RegisterForm = ({ backendUrl, setUserState }) => {
             <input
               name="password"
               onChange={handleFormChange}
+              onKeyDown={handleEnter}
               type="password"
             />
           </div>
@@ -79,6 +86,7 @@ const RegisterForm = ({ backendUrl, setUserState }) => {
             <input
               name="repeatPassword"
               onChange={handleFormChange}
+              onKeyDown={handleEnter}
               type="password"
             />
           </div>

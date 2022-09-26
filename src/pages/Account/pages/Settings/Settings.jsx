@@ -82,6 +82,10 @@ const Settings = ({ user, backendUrl, setUserState }) => {
     }
   };
 
+  const handleEnter = (e) => {
+    e.keyCode === 13 && handleSubmit(e);
+  };
+
   return (
     <div className="accountSettings">
       <AccountInfo user={user} />
@@ -92,6 +96,7 @@ const Settings = ({ user, backendUrl, setUserState }) => {
             id="inputField"
             name="name"
             onChange={handleFormChange}
+            onKeyDown={handleEnter}
             label="Name"
             variant="outlined"
           />
@@ -99,6 +104,7 @@ const Settings = ({ user, backendUrl, setUserState }) => {
             id="inputField"
             name="email"
             onChange={handleFormChange}
+            onKeyDown={handleEnter}
             label="email"
             variant="outlined"
           />
@@ -109,6 +115,7 @@ const Settings = ({ user, backendUrl, setUserState }) => {
             id="inputField"
             name="currPassword"
             onChange={handleFormChange}
+            onKeyDown={handleEnter}
             label="Current Password"
             type="password"
             variant="outlined"
@@ -117,6 +124,7 @@ const Settings = ({ user, backendUrl, setUserState }) => {
             id="inputField"
             name="newPassword"
             onChange={handleFormChange}
+            onKeyDown={handleEnter}
             label="New Password"
             type="password"
             variant="outlined"
@@ -125,6 +133,7 @@ const Settings = ({ user, backendUrl, setUserState }) => {
             id="inputField"
             name="newPasswordRepeat"
             onChange={handleFormChange}
+            onKeyDown={handleEnter}
             label="Repeat Password"
             type="password"
             variant="outlined"

@@ -35,6 +35,10 @@ const LoginForm = ({ backendUrl, setUserState }) => {
     }
   };
 
+  const handleEnter = (e) => {
+    e.keyCode === 13 && handleSubmit(e);
+  };
+
   return (
     <div className="authFormWrapper">
       <div className="authFormTitle">Login</div>
@@ -45,6 +49,7 @@ const LoginForm = ({ backendUrl, setUserState }) => {
             <input
               name="username"
               onChange={handleFormChange}
+              onKeyDown={handleEnter}
               type="text"
             />
           </div>
@@ -53,6 +58,7 @@ const LoginForm = ({ backendUrl, setUserState }) => {
             <input
               name="password"
               onChange={handleFormChange}
+              onKeyDown={handleEnter}
               type="password"
             />
           </div>

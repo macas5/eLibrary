@@ -55,6 +55,10 @@ const SendMessage = ({ user, backendUrl }) => {
     })();
   }, [backendUrl]);
 
+  const handleEnter = (e) => {
+    e.keyCode === 13 && handleSubmit(e);
+  };
+
   return (
     <div className="sendMessage">
       <div className="recipient">
@@ -82,6 +86,7 @@ const SendMessage = ({ user, backendUrl }) => {
         <TextField
           name="content"
           onChange={handleInput}
+          onKeyDown={handleEnter}
           label="message"
         />
       </div>
