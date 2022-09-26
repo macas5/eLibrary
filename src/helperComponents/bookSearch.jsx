@@ -31,7 +31,7 @@ const showBookSearchResults = (
                         src={
                           book.imageLink !== ''
                             ? book.imageLink
-                            : 'https://d3i5mgdwi2ze58.cloudfront.net/f7nkbyqfsnrrlct3hs01jkrz2vdi'
+                            : 'https://media.istockphoto.com/vectors/photo-coming-soon-image-icon-vector-illustration-isolated-on-white-vector-id1193060544?k=20&m=1193060544&s=612x612&w=0&h=MI8y2q1HsY4TEAZD3tNCJN3bmc39N3pnFKC2KKNDUmE='
                         }
                         alt={book.title}
                       />
