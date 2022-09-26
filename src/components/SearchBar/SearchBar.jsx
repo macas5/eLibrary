@@ -74,7 +74,7 @@ const SearchBar = ({ isMini = false, urlValue = '', backendUrl }) => {
 
   const handleItemSelect = (e) => {
     const book = options.find((book) => book.title === e.target.innerHTML);
-    nav(`/book/${book._id}`);
+    book && nav(`/book/${book._id}`);
   };
 
   const handleSearchSubmit = (e) => {
