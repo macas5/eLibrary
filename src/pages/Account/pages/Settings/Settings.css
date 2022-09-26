@@ -15,15 +15,19 @@
 .basicInfo>div,
 .passwordField>div {
   margin: 10px;
-  max-width: 400px;
 }
 
+.accountSettingsWrapper {
+  flex-grow: 1;
+}
 .accountSettingsWrapper h3 {
   margin-left: 10px;
 }
 
-.accountSettingsWrapper button {
-  margin-left: 155px;
+.settingsUpdateButton {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .accountSettingsWrapper .error {

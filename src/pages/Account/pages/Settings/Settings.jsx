@@ -139,6 +139,7 @@ const Settings = ({ user, backendUrl, setUserState }) => {
             variant="outlined"
           />
         </div>
+        <div className="settingsUpdateButton">
         <Button
           id="submit"
           onClick={handleSubmit}
@@ -147,6 +148,7 @@ const Settings = ({ user, backendUrl, setUserState }) => {
         >
           Update
         </Button>
+        </div>
         {error && <p className="error">{error}</p>}
         {success && <p className="success">{success}</p>}
       </div>
