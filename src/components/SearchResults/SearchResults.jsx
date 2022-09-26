@@ -53,7 +53,7 @@ const SearchResults = ({
   };
 
   useEffect(() => {
-    isOnlineReadable &&
+    isOnlineReadable === 'true' &&
       setSearchFilters((prev) => ({
         ...prev,
         isReadableOnline: ['true'],
