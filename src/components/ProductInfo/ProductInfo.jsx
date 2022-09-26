@@ -42,8 +42,8 @@ const ProductInfo = ({ book, user }) => {
                   <td>{book.author}</td>
                 </tr>
                 <tr>
-                  <td>Publication details</td>
-                  <td>Publishing company, {book.publicationDate}</td>
+                  <td>Publication date</td>
+                  <td>{book.publicationDate}</td>
                 </tr>
                 <tr>
                   <td>Physical data</td>
@@ -52,14 +52,6 @@ const ProductInfo = ({ book, user }) => {
                 <tr>
                   <td>Language</td>
                   <td>{book.language}</td>
-                </tr>
-                <tr>
-                  <td>Audience</td>
-                  <td>Book's target audience</td>
-                </tr>
-                <tr>
-                  <td>Subject</td>
-                  <td>Book's genre</td>
                 </tr>
               </tbody>
             </table>
