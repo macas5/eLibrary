@@ -15,9 +15,6 @@ const Footer = () => {
           <Link to="/search/?readonline=true" className="footerLink">
             E-Books
           </Link>
-          <Link to="/" className="footerLink">
-            Most popular
-          </Link>
         </div>
       </div>
       <div className="footerSection">
