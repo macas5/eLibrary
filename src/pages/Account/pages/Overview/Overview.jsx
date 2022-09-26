@@ -4,7 +4,7 @@ import AccountBooks from '../../components/AccountBooks/AccountBooks';
 import AccountInfo from '../../components/AccountInfo/AccountInfo';
 import './Overview.css';
 
-const Overview = ({ user, books, setUserState }) => {
+const Overview = ({ user, books, setUserState, backendUrl }) => {
   return (
     <div className="overview">
       <AccountInfo user={user} />
@@ -13,6 +13,7 @@ const Overview = ({ user, books, setUserState }) => {
           user={user}
           books={books}
           setUserState={setUserState}
+          backendUrl={backendUrl}
           bookLimit={5}
         />
         {books && books.length > 5 && (

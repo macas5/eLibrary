@@ -26,6 +26,7 @@ const Account = ({
         user={user}
         books={books}
         setUserState={setUserState}
+        backendUrl={backendUrl}
       />
     ),
     settings: user && (
@@ -66,6 +67,7 @@ const Account = ({
             user={user}
             books={books}
             setUserState={setUserState}
+            backendUrl={backendUrl}
           />
         );
   };

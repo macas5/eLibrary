@@ -2,7 +2,7 @@ import { List, ListItem } from '@mui/material';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const myBooksDisplay = (bookList, user, setUserState, maxEntries = 0) => {
+const myBooksDisplay = (bookList, user, setUserState, backendUrl, maxEntries = 0) => {
   const handleBookRemoval = async (bookId) => {
     const booksOwnedNew = bookList.filter(function (book) {
       return book._id !== bookId;
@@ -11,7 +11,7 @@ const myBooksDisplay = (bookList, user, setUserState, maxEntries = 0) => {
     const bookIdArray = booksOwnedNew.map((book) => book._id);
     try {
       const { data } = await axios.put(
-        `http://localhost:3001/user/update/${user._id}`,
+        `${backendUrl}/user/update/${user._id}`,
         { booksOwned: bookIdArray },
         { withCredentials: true }
       );

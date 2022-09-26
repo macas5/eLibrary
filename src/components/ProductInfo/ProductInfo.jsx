@@ -2,7 +2,7 @@ import './ProductInfo.css';
 import axios from 'axios';
 import { useState } from 'react';
 
-const ProductInfo = ({ book, user }) => {
+const ProductInfo = ({ book, user, backendUrl }) => {
   const [style, setStyle] = useState('');
 
   const addBook = async () => {
@@ -14,7 +14,7 @@ const ProductInfo = ({ book, user }) => {
       booksOwnedNew.push(book._id);
       try {
         await axios.put(
-          `http://localhost:3001/user/update/${user._id}`,
+          `${backendUrl}/user/update/${user._id}`,
           { booksOwned: booksOwnedNew },
           { withCredentials: true }
         );

@@ -1,7 +1,7 @@
 import myBooksDisplay from '../../../../helperComponents/myBooksDisplay';
 import './AccountBooks.css';
 
-const AccountBooks = ({ user, books, setUserState, bookLimit = 0 }) => {
+const AccountBooks = ({ user, books, setUserState, backendUrl, bookLimit = 0 }) => {
   return (
     <>
       <h3>My Books</h3>
@@ -11,6 +11,7 @@ const AccountBooks = ({ user, books, setUserState, bookLimit = 0 }) => {
           books.filter((book) => user.booksOwned.includes(book._id)),
           user,
           setUserState,
+          backendUrl,
           bookLimit
         )}
     </>
