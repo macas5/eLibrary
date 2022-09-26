@@ -1,4 +1,3 @@
-import { Container } from '@mui/system';
 import Footer from '../../components/Footer/Footer';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import TopBar from '../../components/TopBar/TopBar';
