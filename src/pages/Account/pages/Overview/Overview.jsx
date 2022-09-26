@@ -17,7 +17,7 @@ const Overview = ({ user, books, setUserState }) => {
         />
         {books && books.length > 5 && (
           <div className="buttonWrapper">
-            <Link to="/account/books">
+            <Link className="plainLink" to="/account/books">
               <Button variant="contained">View all of your books</Button>
             </Link>
           </div>

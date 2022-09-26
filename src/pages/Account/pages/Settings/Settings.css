@@ -2,6 +2,7 @@
   margin-top: 10px;
   display: flex;
   margin-bottom: 20px;
+  flex-grow: 1;
 }
 
 .passwordField,
@@ -15,6 +16,14 @@
 .passwordField>div {
   margin: 10px;
   width: 400px;
+}
+
+.accountSettingsWrapper {
+  flex-grow: 1;
+}
+
+.accountSettingsWrapper h3 {
+  margin-left: 10px;
 }
 
 .accountSettingsWrapper button {
