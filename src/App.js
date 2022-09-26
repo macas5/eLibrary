@@ -160,6 +160,7 @@ function App() {
                   accountLinks={accountLinks}
                   books={books}
                   user={user}
+                  backendUrl={backendUrl}
                 />
               }
             />
