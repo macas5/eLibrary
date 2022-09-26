@@ -53,7 +53,6 @@ const SearchResults = ({
   };
 
   useEffect(() => {
-    console.log('effect');
     isOnlineReadable &&
       setSearchFilters((prev) => ({
         ...prev,
