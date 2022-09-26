@@ -8,12 +8,7 @@ import { useEffect, useState } from 'react';
 import './SearchResults.css';
 import showBookSearchResults from '../../helperComponents/bookSearch';
 
-const SearchResults = ({
-  searchValue,
-  isOnlineReadable = 'false',
-  books,
-  backendUrl,
-}) => {
+const SearchResults = ({ searchValue, isOnlineReadable = 'false', books }) => {
   const [bookList, setbookList] = useState(books);
   const [paginatedList, setPaginatedList] = useState([]);
   const [pageCount, setPageCount] = useState(0);
